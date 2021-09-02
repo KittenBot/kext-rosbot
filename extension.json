@@ -1,0 +1,15 @@
+{
+    "id": "rosbot",
+    "name": "rosbot",
+    "version": "2.1.0",
+    "type": "arduino",
+    "fwtype": "pio",
+    "comm": "firmata",
+    "hex": "firmata.hex",
+    "firmware": "firmata.ino",
+    "kittenext": true,
+    "target": "uno",
+    "tags": ["hardware"],
+    "shopLink": "https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w5003-21580290920.14.2102169fuqup0t&id=551011963085",
+    "image": "kittenbot.png"
+}
