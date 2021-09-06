@@ -1,4 +1,393 @@
 {
-  blocks: []
+  blocks: [
+    {
+        opcode: 'arduinostart',
+        blockType: 'conditional',
+        branchCount: 2,
+        isTerminal: true,
+        message2: 'loop',
+        text: [
+          "$$arduino_start",
+          "$$arduino_loop",
+        ],
+        hatType: true,
+        mode: ['arduino']
+    },
+    {
+        func: 'noop',
+        blockType: 'divlabel',
+        text: "$$arduino_title_serial",
+    },
+    {
+        opcode: 'serialreadline',
+        blockType: 'conditional',
+
+        branchCount: 1,
+        isTerminal: false,
+
+        text: "$$arduino_serialreadline",
+        arguments: {
+            SERIAL: {
+                type: 'string',
+                menu: 'serialtype',
+                defaultValue: 'Serial'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'serialavailable',
+        blockType: 'Boolean',
+        text: "$$arduino_serialavailable",
+        arguments: {
+            SERIAL: {
+                type: 'string',
+                menu: 'serialtype',
+                defaultValue: 'Serial'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'serialread',
+        blockType: 'reporter',
+        text: "$$arduino_serialread",
+        arguments: {
+            SERIAL: {
+                type: 'string',
+                menu: 'serialtype',
+                defaultValue: 'Serial'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'serialbegin',
+        blockType: 'command',
+        text: "$$arduino_serialbegin",
+        arguments: {
+            BAUD: {
+                type: 'number',
+                defaultValue: 115200
+            }
+        },
+        sepafter: 36,
+        mode: ['arduino']
+    },
+    {
+        opcode: 'println',
+        blockType: 'command',
+
+        text: "$$arduino_println",
+        arguments: {
+            TEXT: {
+                type: 'string',
+                defaultValue: 'Hello World'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'printvalue',
+        blockType: 'command',
+
+        text: "$$arduino_printvalue",
+        arguments: {
+            TEXT: {
+                type: 'string',
+                defaultValue: 'Apple'
+            },
+            VALUE: {
+                type: 'number',
+                defaultValue: 123
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 's4xparse',
+        blockType: 'command',
+
+        text: "$$arduino_s4xparse",
+        arguments: {
+            PARAM: {
+                type: 'string',
+                defaultValue: 'Apple'
+            }
+        },
+        sepafter: 36,
+        mode: ['arduino']
+    },
+    {
+        opcode: 'softwareserial',
+        blockType: 'command',
+
+        text: "$$arduino_softwareserial",
+        arguments: {
+            TX: {
+                type: 'string',
+                defaultValue: '3',
+                menu: 'digiPin'
+            },
+            RX: {
+                type: 'string',
+                defaultValue: '4',
+                menu: 'digiPin'
+            },
+            BAUD: {
+                type: 'number',
+                defaultValue: 9600
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'softwareserialprintln',
+        blockType: 'command',
+        text: "$$arduino_softwareserialprintln",
+        arguments: {
+            TEXT: {
+                type: 'string',
+                defaultValue: 'Hello World'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        func: 'noop',
+        blockType: 'divlabel',
+        text: 'GPIO'
+    },
+    {
+        opcode: 'pinmode',
+        blockType: 'command',
+        text: "$$arduino_pinmode",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: '13',
+                menu: 'digiPin'
+            },
+            MODE: {
+                type: 'string',
+                menu: 'pinMode',
+                defaultValue: 1
+            }
+        },
+    },
+    {
+        opcode: 'digitalwrite',
+        blockType: 'command',
+        text: "$$arduino_digitalwrite",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: '13',
+                menu: 'digiPin'
+            },
+            VALUE: {
+                type: 'number',
+                menu: 'level',
+                defaultValue: 1
+            }
+        },
+    },
+    {
+        opcode: 'analogwrite',
+        blockType: 'command',
+
+        text: "$$arduino_analogwrite",
+        arguments: {
+            PIN: {
+                type: 'string',
+                menu: 'analogWritePin',
+                defaultValue: '3'
+            },
+            VALUE: {
+                type: 'slider',
+                defaultValue: 120
+            }
+        },
+    },
+    {
+        opcode: 'digitalread',
+        blockType: 'Boolean',
+        text: "$$arduino_digitalread",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: '3',
+                menu: 'digiPin'
+            }
+        },
+    },
+    {
+        opcode: 'analogread',
+        blockType: 'reporter',
+
+        text: "$$arduino_analogread",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: 'A0',
+                menu: 'analogPin'
+            }
+        },
+        sepafter: 36
+    },
+    {
+        opcode: 'led',
+        blockType: 'command',
+        text: "$$arduino_led",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: '13',
+                menu: 'digiPin'
+            },
+            VALUE: {
+                type: 'number',
+                menu: 'onoff',
+                defaultValue: '0'
+            }
+        },
+    },
+    {
+        opcode: 'mapping',
+        blockType: 'reporter',
+
+        text: "$$arduino_mapping",
+        arguments: {
+            VAL: {
+                type: 'number',
+                defaultValue: 100
+            },
+            FROMLOW: {
+                type: 'number',
+                defaultValue: 0
+            },
+            FROMHIGH: {
+                type: 'number',
+                defaultValue: 255
+            },
+            TOLOW: {
+                type: 'number',
+                defaultValue: 0
+            },
+            TOHIGH: {
+                type: 'number',
+                defaultValue: 1024
+            }
+        },
+        hideFromPalette: true, // replaced by math mapping
+    },
+    {
+        opcode: 'millis',
+        blockType: 'reporter',
+
+        text: "$$arduino_millis",
+        mode: ['arduino']
+    },
+    {
+        opcode: 'stringtypo',
+        blockType: 'reporter',
+        text: "$$arduino_stringtypo",
+        arguments: {
+            TEXT: {
+                type: 'string',
+                defaultValue: '123'
+            },
+            TYPO: {
+                type: 'string',
+                defaultValue: 'HEX',
+                menu: 'StrTypo'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        opcode: 'typecast',
+        blockType: 'reporter',
+        text: "$$arduino_typecast",
+        arguments: {
+            VALUE: {
+                type: 'string',
+                defaultValue: '123'
+            },
+            TYPO: {
+                type: 'string',
+                defaultValue: 'char',
+                menu: 'Typo'
+            }
+        },
+        mode: ['arduino']
+    },
+    {
+        func: 'noop',
+        blockType: 'divlabel',
+        text: 'I2C'
+    },
+    {
+        opcode: 'wireBegin',
+        blockType: 'command',
+        text: "$$arduino_wiretrans",
+        arguments: {
+            ADDR: {
+                type: 'string',
+                defaultValue: '0x12'
+            }
+        },
+    },
+    {
+        opcode: 'wireWrite',
+        blockType: 'command',
+        text: "$$arduino_wirewrite",
+        arguments: {
+            DATA: {
+                type: 'string',
+                defaultValue: 'abc'
+            }
+        },
+    },
+    {
+        opcode: 'wireRead',
+        blockType: 'reporter',
+        text: "$$arduino_wireread",
+        arguments: {
+            ADDR: {
+                type: 'string',
+                defaultValue: '0x12'
+            },
+            LEN: {
+                type: 'number',
+                defaultValue: 6
+            }
+        },
+    },
+    {
+        opcode: 'wireEnd',
+        blockType: 'command',
+        text: "$$arduino_wireEnd",
+        mode: ['arduino']
+    },
+    {
+        opcode: 'wireEndRet',
+        blockType: 'reporter',
+        text: "$$arduino_wireEnd",
+    },
+    '---',
+    {
+        opcode: 'commWrite',
+        blockType: 'command',
+        text: "$$arduino_commwrite",
+        arguments: {
+            DATA: {
+                type: 'string',
+                defaultValue: 'abc'
+            }
+        },
+        mode: ['stage']
+    }
+  ]
 
 }

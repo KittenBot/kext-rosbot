@@ -4,7 +4,7 @@
     "version": "2.1.0",
     "type": "arduino",
     "fwtype": "pio",
-    "comm": "firmata",
+    "protocol": "firmata",
     "hex": "firmata.hex",
     "firmware": "firmata.ino",
     "kittenext": true,
