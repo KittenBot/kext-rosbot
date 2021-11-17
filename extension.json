@@ -2,16 +2,18 @@
     "id": "rosbot",
     "name": "rosbot",
     "version": "2.1.0",
-    "options": {
-        "connect":{
-            "baudrate": 57600
-        }
+    "connect":{
+        "baudrate": 57600
     },
     "type": "arduino",
-    "fwtype": "pio",
+    "fwtype": "arduino",
     "protocol": "firmata",
     "hex": "firmata.hex",
     "firmware": "firmata.ino",
+    "programmer": {
+        "name": "uno",
+        "baudrate": 115200
+    },
     "kittenext": true,
     "target": "uno",
     "tags": ["hardware"],
