@@ -1,10 +1,22 @@
 {
     "id": "rosbot",
-    "name": "rosbot",
+    "name": {
+        "en": "Rosbot",
+        "zh-cn": "Rosbot主板"
+    },
+    "description": {
+        "en": "A robot controller based on arduino 328p",
+        "zh-cn": "基于arduino 328p的机器人主板"
+    },
     "version": "2.1.0",
     "connect":{
         "baudrate": 57600
     },
+    "listdevice": {
+        "pid": "0x7523",
+        "vid": "0x1a86"
+    },
+    "masterExt": "rosbot",
     "type": "arduino",
     "fwtype": "arduino",
     "protocol": "firmata",
@@ -18,5 +30,5 @@
     "target": "uno",
     "tags": ["hardware"],
     "shopLink": "https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w5003-21580290920.14.2102169fuqup0t&id=551011963085",
-    "image": "kittenbot.png"
+    "image": "rosbot.jpg"
 }
