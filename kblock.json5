@@ -7,11 +7,13 @@
         isTerminal: true,
         message2: 'loop',
         text: [
-          "$$arduino_start",
-          "$$arduino_loop",
+          "Setup",
+          "Loop",
         ],
         hatType: true,
-        mode: ['arduino']
+        mode: ['arduino'],
+        // branch functions
+        cpp: ['void setup()', 'void loop()']
     },
     {
         func: 'noop',
@@ -33,7 +35,7 @@
                 defaultValue: 'Serial'
             }
         },
-        mode: ['arduino']
+        mode: ['arduino'],
     },
     {
         opcode: 'serialavailable',
@@ -59,7 +61,8 @@
                 defaultValue: 'Serial'
             }
         },
-        mode: ['arduino']
+        mode: ['arduino'],
+        cpp: '[SERIAL].read()'
     },
     {
         opcode: 'serialbegin',
@@ -72,7 +75,8 @@
             }
         },
         sepafter: 36,
-        mode: ['arduino']
+        mode: ['arduino'],
+        cpp: 'Serial.begin([BAUD])'
     },
     {
         opcode: 'println',
@@ -85,7 +89,8 @@
                 defaultValue: 'Hello World'
             }
         },
-        mode: ['arduino']
+        mode: ['arduino'],
+        cpp: 'Serial.println([TEXT])'
     },
     {
         opcode: 'printvalue',
@@ -102,7 +107,8 @@
                 defaultValue: 123
             }
         },
-        mode: ['arduino']
+        mode: ['arduino'],
+        cpp: 'Serial.println(String([TEXT]) + String("=") + String(VALUE))'
     },
     {
         opcode: 's4xparse',
