@@ -253,27 +253,43 @@
     {
         opcode: 'ledblink',
         blockType: 'command',
-        text: "$$arduino_led",
+        text: "Blink [PIN] blink [DELAY]ms",
         arguments: {
             PIN: {
                 type: 'string',
                 defaultValue: '13',
                 menu: 'digiPin'
             },
-            VALUE: {
-                type: 'string',
-                defaultValue: 'blink',
-                menu: 'blinkCmd'
+            DELAY: {
+                type: 'number',
+                defaultValue: 500
             }
         },
         mode: ['stage'],
         firmata: {
             key: 'led[PIN]',
             device: 'Led([PIN])',
-            cmd: 'led_[PIN].[VALUE]()'
+            cmd: 'blink([DELAY])'
         },
     },
-
+    {
+        opcode: 'ledblinkstop',
+        blockType: 'command',
+        text: "Blink [PIN] stop",
+        arguments: {
+            PIN: {
+                type: 'string',
+                defaultValue: '13',
+                menu: 'digiPin'
+            }
+        },
+        mode: ['stage'],
+        firmata: {
+            key: 'led[PIN]',
+            device: 'Led([PIN])',
+            cmd: 'stop()'
+        },
+    },
     {
         opcode: 'mapping',
         blockType: 'reporter',
