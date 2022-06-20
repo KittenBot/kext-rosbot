@@ -108,7 +108,7 @@
             }
         },
         mode: ['arduino'],
-        cpp: 'Serial.println(String([TEXT]) + String("=") + String(VALUE))'
+        cpp: 'Serial.println(String([TEXT]) + String("=") + String([VALUE]))'
     },
     {
         opcode: 's4xparse',
@@ -159,11 +159,7 @@
         },
         mode: ['arduino']
     },
-    {
-        func: 'noop',
-        blockType: 'divlabel',
-        text: 'GPIO'
-    },
+    "## GPIO",
     {
         opcode: 'pinmode',
         blockType: 'command',
@@ -180,6 +176,7 @@
                 defaultValue: 1
             }
         },
+        cpp: 'pinMode([PIN], [MODE])',
         firmata: {
             cmd: 'pinMode([PIN], [MODE])'
         }
@@ -200,6 +197,7 @@
                 defaultValue: 1
             }
         },
+        cpp: 'digitalWrite([PIN], [VALUE])',
         firmata: {
             cmd: 'digitalWrite([PIN], [VALUE])'
         }
@@ -220,6 +218,7 @@
                 defaultValue: 120
             }
         },
+        cpp: 'analogWrite([PIN], [VALUE])',
         firmata: {
             cmd: 'analogWrite([PIN], [VALUE])'
         }
@@ -235,6 +234,7 @@
                 menu: 'digiPin'
             }
         },
+        cpp: 'digitalRead([PIN])',
         firmata: {
             cmd: 'digitalRead([PIN], ##CALLBACK##)'
         }
@@ -251,6 +251,7 @@
                 menu: 'analogPin'
             }
         },
+        cpp: 'analogRead([PIN])',
         firmata: {
             cmd: 'analogRead([PIN], ##CALLBACK##)'
         },
@@ -328,7 +329,8 @@
     {
         opcode: 'millis',
         blockType: 'reporter',
-
+        cpp: 'millis()',
+        disableMonitor: 1,
         text: "$$arduino_millis",
         mode: ['arduino']
     },
@@ -366,11 +368,7 @@
         },
         mode: ['arduino']
     },
-    {
-        func: 'noop',
-        blockType: 'divlabel',
-        text: 'I2C'
-    },
+    "## I2C",
     {
         opcode: 'wireBegin',
         blockType: 'command',
@@ -429,18 +427,24 @@
             cmd: 'i2cStop()'
         },
     },
-    '---',
+    "## MOTOR",
     {
-        opcode: 'commWrite',
+        opcode: 'motorM1',
         blockType: 'command',
-        text: "$$arduino_commwrite",
+        text: "Motor M1 [SPEED]",
         arguments: {
-            DATA: {
-                type: 'string',
-                defaultValue: 'abc'
+            SPEED: {
+                type: 'slider',
+                defaultValue: 100,
+                max: 255,
+                min: -255,
             }
         },
-        mode: ['stage']
+        firmata: {
+            key: 'motorM1',
+            device: 'Motor([5,6])',
+            cmd: 'forward([SPEED])'
+        },
     }
   ],
   menus: {
