@@ -1,473 +1,690 @@
 {
+  color1: "#DE5277",
+  color2: "#AA3F5B",
+  color3: "#AA3F5B",
   blocks: [
     {
-        opcode: 'arduinostart',
-        blockType: 'conditional',
-        branchCount: 2,
-        isTerminal: true,
-        message2: 'loop',
-        text: [
-          "Setup",
-          "Loop",
-        ],
-        hatType: true,
-        mode: ['arduino'],
-        // branch functions
-        cpp: ['void setup()', 'void loop()']
-    },
-    {
-        func: 'noop',
-        blockType: 'divlabel',
-        text: "$$arduino_title_serial",
-    },
-    {
-        opcode: 'serialreadline',
-        blockType: 'conditional',
+        opcode: 'motorspeed',
+        blockType: "command",
 
-        branchCount: 1,
-        isTerminal: false,
-
-        text: "$$arduino_serialreadline",
+        text: "$$rosbot_motorspeed",
         arguments: {
-            SERIAL: {
-                type: 'string',
-                menu: 'serialtype',
-                defaultValue: 'Serial'
-            }
-        },
-        mode: ['arduino'],
-    },
-    {
-        opcode: 'serialavailable',
-        blockType: 'Boolean',
-        text: "$$arduino_serialavailable",
-        arguments: {
-            SERIAL: {
-                type: 'string',
-                menu: 'serialtype',
-                defaultValue: 'Serial'
-            }
-        },
-        mode: ['arduino']
-    },
-    {
-        opcode: 'serialread',
-        blockType: 'reporter',
-        text: "$$arduino_serialread",
-        arguments: {
-            SERIAL: {
-                type: 'string',
-                menu: 'serialtype',
-                defaultValue: 'Serial'
-            }
-        },
-        mode: ['arduino'],
-        cpp: '[SERIAL].read()'
-    },
-    {
-        opcode: 'serialbegin',
-        blockType: 'command',
-        text: "$$arduino_serialbegin",
-        arguments: {
-            BAUD: {
-                type: 'number',
-                defaultValue: 115200
-            }
-        },
-        sepafter: 36,
-        mode: ['arduino'],
-        cpp: 'Serial.begin([BAUD])'
-    },
-    {
-        opcode: 'println',
-        blockType: 'command',
-
-        text: "$$arduino_println",
-        arguments: {
-            TEXT: {
-                type: 'string',
-                defaultValue: 'Hello World'
-            }
-        },
-        mode: ['arduino'],
-        cpp: 'Serial.println([TEXT])'
-    },
-    {
-        opcode: 'printvalue',
-        blockType: 'command',
-
-        text: "$$arduino_printvalue",
-        arguments: {
-            TEXT: {
-                type: 'string',
-                defaultValue: 'Apple'
+            MOTOR: {
+                type: "string",
+                menu: 'motorIndex',
+                defaultValue: '0'
             },
-            VALUE: {
-                type: 'number',
-                defaultValue: 123
+            SPEED: {
+                type: "slider",
+                defaultValue: 100
             }
         },
-        mode: ['arduino'],
-        cpp: 'Serial.println(String([TEXT]) + String("=") + String([VALUE]))'
+        cmd: 'M200 [MOTOR] [SPEED]'
     },
     {
-        opcode: 's4xparse',
-        blockType: 'command',
+        opcode: 'motordual',
+        blockType: "command",
 
-        text: "$$arduino_s4xparse",
+        text: "$$rosbot_motordual",
         arguments: {
-            PARAM: {
-                type: 'string',
-                defaultValue: 'Apple'
+            SPDM1A: {
+                type: "slider",
+                defaultValue: 100
+            },
+            SPDM1B: {
+                type: "slider",
+                defaultValue: 100
             }
         },
-        sepafter: 36,
-        mode: ['arduino']
+        cmd: 'M204 [SPDM1A] [SPDM1B] 0'
     },
     {
-        opcode: 'softwareserial',
-        blockType: 'command',
+        opcode: 'motordualdelay',
+        blockType: "command",
 
-        text: "$$arduino_softwareserial",
+        text: "$$rosbot_motordualdelay",
         arguments: {
-            TX: {
-                type: 'string',
-                defaultValue: '3',
-                menu: 'digiPin'
+            SPDM1A: {
+                type: "slider",
+                defaultValue: 100
             },
-            RX: {
-                type: 'string',
-                defaultValue: '4',
-                menu: 'digiPin'
+            SPDM1B: {
+                type: "slider",
+                defaultValue: 100
             },
-            BAUD: {
-                type: 'number',
-                defaultValue: 9600
+            DELAY: {
+                type: "number",
+                defaultValue: 500
             }
         },
-        mode: ['arduino']
+        cmd: 'M204 [SPDM1A] [SPDM1B] [DELAY]'
     },
     {
-        opcode: 'softwareserialprintln',
-        blockType: 'command',
-        text: "$$arduino_softwareserialprintln",
+        opcode: 'motorfour',
+        blockType: "command",
+
+        text: "$$rosbot_motorfour",
         arguments: {
-            TEXT: {
-                type: 'string',
-                defaultValue: 'Hello World'
+            SPDM1A: {
+                type: "slider",
+                defaultValue: 50
+            },
+            SPDM1B: {
+                type: "slider",
+                defaultValue: 50
+            },
+            SPDM2A: {
+                type: "slider",
+                defaultValue: -50
+            },
+            SPDM2B: {
+                type: "slider",
+                defaultValue: -50
             }
         },
-        mode: ['arduino']
+        cmd: 'M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]'
     },
-    "## GPIO",
+    {
+        opcode: 'omniwheel',
+        blockType: "command",
+
+        text: "$$rosbot_omniwheel",
+        arguments: {
+            SPDX: {
+                type: "slider",
+                defaultValue: 100
+            },
+            SPDY: {
+                type: "slider",
+                defaultValue: 100
+            },
+            SPDR: {
+                type: "slider",
+                defaultValue: 0
+            }
+        },
+        cmd: 'M209 [SPDX] [SPDY] [SPDR]'
+    },
+    {
+        opcode: 'stop',
+        blockType: "command",
+
+        text: "$$rosbot_stop",
+        func: 'motorStop',
+        cmd: 'M203',
+        sepafter: 36
+    },
+    {
+        opcode: 'stepperline',
+        blockType: "command",
+
+        text: "$$rosbot_stepperline",
+        arguments: {
+            DISTANCE: {
+                type: "number",
+                defaultValue: 20
+            }
+        },
+        cmd: 'M101 [DISTANCE]'
+    },
+    {
+        opcode: 'stepperturn',
+        blockType: "command",
+
+        text: "$$rosbot_stepperturn",
+        arguments: {
+            DEGREE: {
+                type: "number",
+                defaultValue: 90
+            }
+        },
+        cmd: 'M102 [DEGREE]'
+    },
+    {
+        opcode: 'stepperppm',
+        blockType: "command",
+
+        text: "$$rosbot_stepperppm",
+        arguments: {
+            PPM: {
+                type: "number",
+                defaultValue: 14124
+            }
+        },
+        cmd: 'M104 [PPM]'
+    },
+    {
+        opcode: 'stepperwheelbase',
+        blockType: "command",
+
+        text: "$$rosbot_stepperwheelbase",
+        arguments: {
+            WHEELBASE: {
+                type: "number",
+                defaultValue: 0.118
+            }
+        },
+        cmd: 'M105 [WHEELBASE]'
+    },
+    {
+        opcode: 'stepperarc',
+        blockType: "command",
+
+        text: "$$rosbot_stepperarc",
+        arguments: {
+            RADIUS: {
+                type: "number",
+                defaultValue: 20
+            },
+            DEGREE: {
+                type: "number",
+                defaultValue: 90
+            }
+        },
+        cmd: 'M103 [RADIUS] [DEGREE]',
+        sepafter: 36
+    },
+    /*
+    {
+        opcode: 'steppermove',
+        blockType: "command",
+
+        text: 'Stepper [STEPPER] DEGREE [DEGREE] RPM [RPM]',
+        arguments: {
+            STEPPER: {
+                type: "string",
+                menu: 'stepperIndex',
+                defaultValue: 'M1'
+            },
+            DEGREE: {
+                type: "number",
+                defaultValue: 360
+            },
+            RPM: {
+                type: "number",
+                defaultValue: 11
+            }
+        },
+        func: 'steppermove',
+        sepafter: 36
+    },
+    */
     {
         opcode: 'pinmode',
-        blockType: 'command',
-        text: "$$arduino_pinmode",
+        blockType: "command",
+
+        text: "$$rosbot_pinmode",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 defaultValue: '13',
-                menu: 'digiPin'
+                menu: 'rosbotPin'
             },
             MODE: {
-                type: 'string',
+                type: "string",
                 menu: 'pinMode',
-                defaultValue: 1
+                defaultValue: '0'
             }
         },
-        cpp: 'pinMode([PIN], [MODE])',
-        firmata: {
-            cmd: 'pinMode([PIN], [MODE])'
-        }
+        cmd: 'M1 [PIN] [MODE]',
     },
     {
         opcode: 'digitalwrite',
-        blockType: 'command',
-        text: "$$arduino_digitalwrite",
+        blockType: "command",
+
+        text: "$$rosbot_digitalwrite",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 defaultValue: '13',
-                menu: 'digiPin'
+                menu: 'rosbotPin'
             },
             VALUE: {
-                type: 'number',
+                type: "number",
                 menu: 'level',
-                defaultValue: 1
+                defaultValue: '1'
             }
         },
-        cpp: 'digitalWrite([PIN], [VALUE])',
-        firmata: {
-            cmd: 'digitalWrite([PIN], [VALUE])'
-        }
+        cmd: 'M2 [PIN] [VALUE]',
     },
     {
         opcode: 'analogwrite',
-        blockType: 'command',
+        blockType: "command",
 
-        text: "$$arduino_analogwrite",
+        text: "$$rosbot_analogwrite",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 menu: 'analogWritePin',
-                defaultValue: '3'
+                defaultValue: '11'
             },
             VALUE: {
-                type: 'slider',
+                type: "slider",
                 defaultValue: 120
             }
         },
-        cpp: 'analogWrite([PIN], [VALUE])',
-        firmata: {
-            cmd: 'analogWrite([PIN], [VALUE])'
-        }
+        cmd: 'M4 [PIN] [VALUE]',
     },
     {
         opcode: 'digitalread',
-        blockType: 'Boolean',
-        text: "$$arduino_digitalread",
+        blockType: "boolean",
+
+        text: "$$rosbot_digitalread",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 defaultValue: '3',
-                menu: 'digiPin'
+                menu: 'rosbotPin'
             }
         },
-        cpp: 'digitalRead([PIN])',
-        firmata: {
-            cmd: 'digitalRead([PIN], ##CALLBACK##)'
-        }
+        cmd: 'M3 [PIN]',
     },
     {
         opcode: 'analogread',
-        blockType: 'reporter',
+        blockType: "reporter",
 
-        text: "$$arduino_analogread",
+        text: "$$rosbot_analogread",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 defaultValue: 'A0',
                 menu: 'analogPin'
             }
         },
-        cpp: 'analogRead([PIN])',
-        firmata: {
-            cmd: 'analogRead([PIN], ##CALLBACK##)'
-        },
-        sepafter: 36
+        cmd: 'M5 [PIN]',
     },
     {
-        opcode: 'ledblink',
-        blockType: 'command',
-        text: "Blink [PIN] blink [DELAY]ms",
+        opcode: 'led',
+        blockType: "command",
+
+        text: "$$rosbot_led",
         arguments: {
             PIN: {
-                type: 'string',
+                type: "string",
                 defaultValue: '13',
-                menu: 'digiPin'
+                menu: 'rosbotPin'
             },
-            DELAY: {
-                type: 'number',
+            VALUE: {
+                type: "string",
+                menu: 'ledonoff',
+                defaultValue: '0'
+            }
+        },
+        cmd: 'M2 [PIN] [VALUE]',
+        sepafter: 36
+
+    },
+    {
+        opcode: 'button',
+        blockType: "boolean",
+
+        text: "$$rosbot_button",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: '4',
+                menu: 'rosbotPin'
+            }
+        },
+        cmd: 'M10 [PIN]',
+    },
+    {
+        opcode: 'servo',
+        blockType: "command",
+
+        text: "$$rosbot_servo",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: '0',
+                menu: 'extPin'
+            },
+            DEGREE: {
+                type: "slider",
+                defaultValue: 90
+            },
+            SPEED: {
+                type: "slider",
+                defaultValue: 128
+            }
+        },
+        cmd: 'M212 [PIN] [DEGREE] [SPEED]',
+    },
+    {
+        opcode: 'geekservo',
+        blockType: "command",
+
+        text: "$$rosbot_geekservo",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: '0',
+                menu: 'extPin'
+            },
+            DEGREE: {
+                type: "number",
+                defaultValue: 90
+            },
+            SPEED: {
+                type: "slider",
+                defaultValue: 128
+            }
+        },
+        cmd: 'M213 [PIN] [DEGREE] [SPEED]',
+    },
+    {
+        opcode: 'tone',
+        blockType: "command",
+
+        text: "$$rosbot_tone",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: 'A0',
+                menu: 'rosbotPin'
+            },
+            FREQ: {
+                type: "number",
+                defaultValue: 200
+            },
+            DURATION: {
+                type: "number",
                 defaultValue: 500
             }
         },
-        mode: ['stage'],
-        firmata: {
-            key: 'led[PIN]',
-            device: 'Led([PIN])',
-            cmd: 'blink([DELAY])'
-        },
+        cmd: 'M6 [PIN] [FREQ] [DURATION]',
     },
     {
-        opcode: 'ledblinkstop',
-        blockType: 'command',
-        text: "Blink [PIN] stop",
-        arguments: {
-            PIN: {
-                type: 'string',
-                defaultValue: '13',
-                menu: 'digiPin'
-            }
-        },
-        mode: ['stage'],
-        firmata: {
-            key: 'led[PIN]',
-            device: 'Led([PIN])',
-            cmd: 'stop()'
-        },
-    },
-    {
-        opcode: 'mapping',
-        blockType: 'reporter',
+        opcode: 'rgbbrightness',
+        blockType: "command",
 
-        text: "$$arduino_mapping",
-        arguments: {
-            VAL: {
-                type: 'number',
-                defaultValue: 100
-            },
-            FROMLOW: {
-                type: 'number',
-                defaultValue: 0
-            },
-            FROMHIGH: {
-                type: 'number',
-                defaultValue: 255
-            },
-            TOLOW: {
-                type: 'number',
-                defaultValue: 0
-            },
-            TOHIGH: {
-                type: 'number',
-                defaultValue: 1024
-            }
-        },
-        hideFromPalette: true, // replaced by math mapping
-    },
-    {
-        opcode: 'millis',
-        blockType: 'reporter',
-        cpp: 'millis()',
-        disableMonitor: 1,
-        text: "$$arduino_millis",
-        mode: ['arduino']
-    },
-    {
-        opcode: 'stringtypo',
-        blockType: 'reporter',
-        text: "$$arduino_stringtypo",
-        arguments: {
-            TEXT: {
-                type: 'string',
-                defaultValue: '123'
-            },
-            TYPO: {
-                type: 'string',
-                defaultValue: 'HEX',
-                menu: 'StrTypo'
-            }
-        },
-        mode: ['arduino']
-    },
-    {
-        opcode: 'typecast',
-        blockType: 'reporter',
-        text: "$$arduino_typecast",
+        text: "$$rosbot_rgbbrightness",
         arguments: {
             VALUE: {
-                type: 'string',
-                defaultValue: '123'
+                type: "slider",
+                defaultValue: 100
+            }
+        },
+        cmd: 'M11 [VALUE]',
+    },
+    {
+        opcode: 'rgbpick',
+        blockType: "command",
+
+        text: "$$rosbot_rgbpick",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: '4',
+                menu: 'rosbotPin'
             },
-            TYPO: {
-                type: 'string',
-                defaultValue: 'char',
-                menu: 'Typo'
-            }
-        },
-        mode: ['arduino']
-    },
-    "## I2C",
-    {
-        opcode: 'wireBegin',
-        blockType: 'command',
-        text: "$$arduino_wiretrans",
-        arguments: {
-            ADDR: {
-                type: 'string',
-                defaultValue: '0x12'
-            }
-        },
-        firmata: {
-            cmd: 'i2cConfig({address: [ADDR]})'
-        },
-    },
-    {
-        opcode: 'wireWrite',
-        blockType: 'command',
-        text: "$$arduino_wirewrite",
-        arguments: {
-            ADDR: {
-                type: 'number',
-                defaultValue: 78
+            PIX: {
+                type: "number",
+                defaultValue: 1
             },
-            DATA: {
-                type: 'string',
-                defaultValue: 'abc'
+            COLOR: {
+                type: "colorrgb"
             }
         },
-        firmata: {
-            cmd: 'i2cWrite([ADDR], [DATA])'
-        },
+        cmd: 'M9 [PIN] [PIX] [COLOR]',
     },
     {
-        opcode: 'wireRead',
-        blockType: 'reporter',
-        text: "$$arduino_wireread",
+        opcode: 'rgb',
+        blockType: "command",
+
+        text: "$$rosbot_rgb",
         arguments: {
-            ADDR: {
-                type: 'string',
-                defaultValue: '0x12'
+            PIN: {
+                type: "string",
+                defaultValue: '4',
+                menu: 'rosbotPin'
             },
-            LEN: {
-                type: 'number',
-                defaultValue: 6
+            PIX: {
+                type: "number",
+                defaultValue: '0',
+                menu: 'rgbPix'
+            },
+            RED: {
+                type: "slider",
+                defaultValue: 100
+            },
+            GREEN: {
+                type: "slider",
+                defaultValue: 150
+            },
+            BLUE: {
+                type: "slider",
+                defaultValue: 0
             }
         },
-        firmata: {
-            cmd: 'i2cRead([ADDR], [DATA], [LEN], ##CALLBACK##)'
-        },
+        cmd: 'M9 [PIN] [PIX] [RED] [GREEN] [BLUE]',
     },
     {
-        opcode: 'wireEnd',
-        blockType: 'command',
-        text: "$$arduino_wireEnd",
-        firmata: {
-            cmd: 'i2cStop()'
-        },
-    },
-    "## MOTOR",
-    {
-        opcode: 'motorM1',
-        blockType: 'command',
-        text: "Motor M1 [SPEED]",
+        opcode: 'rgboff',
+        blockType: "command",
+
+        text: "$$rosbot_rgboff",
         arguments: {
-            SPEED: {
-                type: 'slider',
-                defaultValue: 100,
-                max: 255,
-                min: -255,
+            PIN: {
+                type: "string",
+                defaultValue: '4',
+                menu: 'rosbotPin'
             }
         },
-        firmata: {
-            key: 'motorM1',
-            device: 'Motor([5,6])',
-            cmd: 'forward([SPEED])'
+        cmd: 'M9 [PIN] 0 0 0 0',
+    },
+    {
+        opcode: 'distance',
+        blockType: "reporter",
+
+        text: "$$rosbot_distance",
+        arguments: {
+            PIN: {
+                type: "string",
+                defaultValue: '2',
+                menu: 'rosbotPin'
+            }
         },
+        cmd: 'M250 [PIN] 99',
+    },
+    {
+        opcode: 'power',
+        blockType: "reporter",
+
+        text: "$$rosbot_power",
+        cmd: 'M8',
+        sepafter: 36
+    },
+    {
+        opcode: 'ps2init',
+        blockType: "command",
+
+        text: "$$rosbot_ps2init",
+        cmd: 'M220',
+    },
+    {
+        opcode: 'ps2axis',
+        blockType: "reporter",
+
+        text: "$$rosbot_ps2axis",
+        arguments: {
+            AXIS: {
+                type: "string",
+                defaultValue: '7',
+                menu: 'axisList'
+            }
+        },
+        cmd: 'M221 [AXIS]',
+    },
+    {
+        opcode: 'ps2button',
+        blockType: "reporter",
+
+        text: "$$rosbot_ps2button",
+        arguments: {
+            BUTTON: {
+                type: "string",
+                defaultValue: '13',
+                menu: 'buttonList'
+            }
+        },
+        cmd: 'M222 [BUTTON]',
+        sepafter: 36
+    },
+    {
+        opcode: 'ledstring',
+        blockType: "command",
+
+        text: "$$rosbot_ledstring",
+        arguments: {
+            STR: {
+                type: "string",
+                defaultValue: 'hello world'
+            }
+        },
+        cmd: 'M20 [STR]',
+    },
+    {
+        opcode: 'ledmatrix',
+        blockType: "command",
+
+        text: "$$rosbot_ledmatrix",
+        arguments: {
+            MAT: {
+                type: 'ledmatrix',
+                defaultValue: '00000000024000000000042003c00000'
+            }
+        },
+        cmd: 'M21 [MAT]',
+    },
+    {
+        opcode: 'ledmatrixclear',
+        blockType: "command",
+
+        text: "$$rosbot_ledmatrixclear",
+        cmd: 'M21 00000000000000000000000000000000',
+    },
+    {
+        opcode: 'ledmatrixrect',
+        blockType: "command",
+
+        text: "$$rosbot_ledmatrixrect",
+        arguments: {
+            X: {
+                type: "number",
+                defaultValue: 2
+            },
+            Y: {
+                type: "number",
+                defaultValue: 2
+            },
+            W: {
+                type: "number",
+                defaultValue: 3
+            },
+            H: {
+                type: "number",
+                defaultValue: 3
+            },
+            C: {
+                type: "number",
+                defaultValue: 1
+            }
+        },
+        cmd: 'M22 [X] [Y] [W] [H] [C]',
+    },
+    {
+        opcode: 'mp3play',
+        blockType: "command",
+
+        text: "$$rosbot_mp3play",
+        arguments: {
+            IO1: {
+                type: "string",
+                defaultValue: '4',
+                menu: 'rosbotPin'
+            },
+            IO2: {
+                type: "string",
+                defaultValue: '7',
+                menu: 'rosbotPin'
+            }
+        },
+        cmd: 'M31 [IO1] [IO2] 100',
+    },
+    {
+        opcode: 'mp3loop',
+        blockType: "command",
+
+        text: "$$rosbot_mp3loop",
+        arguments: {
+            DIR: {
+                type: "string",
+                defaultValue: 'NEXT',
+                menu: 'mp3direction'
+            }
+        },
+        cmd: 'M30 [DIR] 100',
+    },
+    {
+        opcode: 'mp3volumn',
+        blockType: "command",
+
+        text: "$$rosbot_mp3volumn",
+        arguments: {
+            VOLUMN: {
+                type: "string",
+                defaultValue: 'UP',
+                menu: 'volumnList'
+            }
+        },
+        cmd: 'M30 [VOLUMN] 500',
     }
   ],
   menus: {
     pinMode: [
-        {text: "input", value: '0'},
-        {text: "output", value: '1'},
-        {text: "inputpullup", value: '2'}
+      { text: "input", value: "0" },
+      { text: "output", value: "1" },
+      { text: "inputpullup", value: "2" },
     ],
     level: [
-        {text: "high", value: 1},
-        {text: "low", value: 0}],
-    onoff: [
-        {text: "on", value: '0'},
-        {text: "off", value: '1'}
+      { text: "high", value: 1 },
+      { text: "low", value: 0 },
     ],
-    blinkCmd: ['blink', 'stop'],
-    digiPin: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
-        'A0', 'A1', 'A2', 'A3', 'A4', 'A5'],
-    analogPin: ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'],
-    analogWritePin: ['3', '5', '6', '9', '10', '11'],
-    serialtype: [{text: 'Serial', value: 'Serial'}, {text: 'Soft Serial', value: 'softser'}],
-    StrTypo: ['HEX', 'BIN', 'DEC'],
-    Typo: ['byte', 'char', 'int', 'long', 'word', 'float']
-  }
-
+    onoff: [
+      { text: "on", value: "0" },
+      { text: "off", value: "1" },
+    ],
+    blinkCmd: ["blink", "stop"],
+    digiPin: [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+    ],
+    analogPin: ["A0", "A1", "A2", "A3", "A4", "A5"],
+    analogWritePin: ["3", "5", "6", "9", "10", "11"],
+    serialtype: [
+      { text: "Serial", value: "Serial" },
+      { text: "Soft Serial", value: "softser" },
+    ],
+    StrTypo: ["HEX", "BIN", "DEC"],
+    Typo: ["byte", "char", "int", "long", "word", "float"],
+  },
 }

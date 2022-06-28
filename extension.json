@@ -17,8 +17,10 @@
     "type": "arduino",
     "fwtype": "arduino",
     "protocol": "command",
-    "firmware": "firmata.hex",
+    "firmware": "kittenbot.hex",
     "arduino": {
+        "core": "arduino:avr",
+        "board": "uno",
         "libs": [
             "AccelStepper.zip",
             "DHT11.zip",
