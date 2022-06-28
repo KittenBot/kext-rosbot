@@ -8,10 +8,7 @@
         "en": "A robot controller based on arduino 328p",
         "zh-cn": "基于arduino 328p的机器人主板"
     },
-    "version": "2.1.0",
-    "connect":{
-        "baudrate": 57600
-    },
+    "version": "2.2.1",
     "listdevice": {
         "pid": "0x7523",
         "vid": "0x1a86"
@@ -19,12 +16,25 @@
     "masterExt": "rosbot",
     "type": "arduino",
     "fwtype": "arduino",
-    "protocol": "firmata",
-    "hex": "firmata.hex",
-    "firmware": "firmata.ino",
-    "programmer": {
-        "name": "uno",
-        "baudrate": 115200
+    "protocol": "command",
+    "firmware": "firmata.hex",
+    "arduino": {
+        "libs": [
+            "AccelStepper.zip",
+            "DHT11.zip",
+            "FlexiTimer2.zip",
+            "KittenBot.zip",
+            "kittenbotEE.zip",
+            "KittenbotIoT.zip",
+            "VarSpeedServo.zip"
+        ],
+        "objects": {
+            "kittenbot": {
+                "import": "#include \"KittenBot.h\"",
+                "object": "KittenBot kb;",
+                "setup": "kb.init()"
+            }
+        }
     },
     "kittenext": true,
     "target": "uno",
