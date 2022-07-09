@@ -4,185 +4,183 @@
   color3: "#AA3F5B",
   blocks: [
     {
-        opcode: 'motorspeed',
-        blockType: "command",
+      opcode: "motorspeed",
+      blockType: "command",
 
-        text: "$$rosbot_motorspeed",
-        arguments: {
-            MOTOR: {
-                type: "string",
-                menu: 'motorIndex',
-                defaultValue: '0'
-            },
-            SPEED: {
-                type: "slider",
-                defaultValue: 100
-            }
+      text: "$$rosbot_motorspeed",
+      arguments: {
+        MOTOR: {
+          type: "string",
+          menu: "motorIndex",
+          defaultValue: "0",
         },
-        cmd: 'M200 [MOTOR] [SPEED]'
+        SPEED: {
+          type: "slider",
+          defaultValue: 100,
+        },
+      },
+      cmd: "M200 [MOTOR] [SPEED]",
     },
     {
-        opcode: 'motordual',
-        blockType: "command",
+      opcode: "motordual",
+      blockType: "command",
 
-        text: "$$rosbot_motordual",
-        arguments: {
-            SPDM1A: {
-                type: "slider",
-                defaultValue: 100
-            },
-            SPDM1B: {
-                type: "slider",
-                defaultValue: 100
-            }
+      text: "$$rosbot_motordual",
+      arguments: {
+        SPDM1A: {
+          type: "slider",
+          defaultValue: 100,
         },
-        cmd: 'M204 [SPDM1A] [SPDM1B] 0'
+        SPDM1B: {
+          type: "slider",
+          defaultValue: 100,
+        },
+      },
+      cmd: "M204 [SPDM1A] [SPDM1B] 0",
     },
     {
-        opcode: 'motordualdelay',
-        blockType: "command",
+      opcode: "motordualdelay",
+      blockType: "command",
 
-        text: "$$rosbot_motordualdelay",
-        arguments: {
-            SPDM1A: {
-                type: "slider",
-                defaultValue: 100
-            },
-            SPDM1B: {
-                type: "slider",
-                defaultValue: 100
-            },
-            DELAY: {
-                type: "number",
-                defaultValue: 500
-            }
+      text: "$$rosbot_motordualdelay",
+      arguments: {
+        SPDM1A: {
+          type: "slider",
+          defaultValue: 100,
         },
-        cmd: 'M204 [SPDM1A] [SPDM1B] [DELAY]'
+        SPDM1B: {
+          type: "slider",
+          defaultValue: 100,
+        },
+        DELAY: {
+          type: "number",
+          defaultValue: 500,
+        },
+      },
+      cmd: "M204 [SPDM1A] [SPDM1B] [DELAY]",
     },
     {
-        opcode: 'motorfour',
-        blockType: "command",
+      opcode: "motorfour",
+      blockType: "command",
 
-        text: "$$rosbot_motorfour",
-        arguments: {
-            SPDM1A: {
-                type: "slider",
-                defaultValue: 50
-            },
-            SPDM1B: {
-                type: "slider",
-                defaultValue: 50
-            },
-            SPDM2A: {
-                type: "slider",
-                defaultValue: -50
-            },
-            SPDM2B: {
-                type: "slider",
-                defaultValue: -50
-            }
+      text: "$$rosbot_motorfour",
+      arguments: {
+        SPDM1A: {
+          type: "slider",
+          defaultValue: 50,
         },
-        cmd: 'M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]'
+        SPDM1B: {
+          type: "slider",
+          defaultValue: 50,
+        },
+        SPDM2A: {
+          type: "slider",
+          defaultValue: -50,
+        },
+        SPDM2B: {
+          type: "slider",
+          defaultValue: -50,
+        },
+      },
+      cmd: "M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]",
     },
     {
-        opcode: 'omniwheel',
-        blockType: "command",
+      opcode: "omniwheel",
+      blockType: "command",
 
-        text: "$$rosbot_omniwheel",
-        arguments: {
-            SPDX: {
-                type: "slider",
-                defaultValue: 100
-            },
-            SPDY: {
-                type: "slider",
-                defaultValue: 100
-            },
-            SPDR: {
-                type: "slider",
-                defaultValue: 0
-            }
+      text: "$$rosbot_omniwheel",
+      arguments: {
+        SPDX: {
+          type: "slider",
+          defaultValue: 100,
         },
-        cmd: 'M209 [SPDX] [SPDY] [SPDR]'
+        SPDY: {
+          type: "slider",
+          defaultValue: 100,
+        },
+        SPDR: {
+          type: "slider",
+          defaultValue: 0,
+        },
+      },
+      cmd: "M209 [SPDX] [SPDY] [SPDR]",
     },
     {
-        opcode: 'stop',
-        blockType: "command",
-
-        text: "$$rosbot_stop",
-        func: 'motorStop',
-        cmd: 'M203',
-        sepafter: 36
+      opcode: "stop",
+      blockType: "command",
+      text: "$$rosbot_stop",
+      cmd: "M203",
+      sepafter: 36,
     },
     {
-        opcode: 'stepperline',
-        blockType: "command",
+      opcode: "stepperline",
+      blockType: "command",
 
-        text: "$$rosbot_stepperline",
-        arguments: {
-            DISTANCE: {
-                type: "number",
-                defaultValue: 20
-            }
+      text: "$$rosbot_stepperline",
+      arguments: {
+        DISTANCE: {
+          type: "number",
+          defaultValue: 20,
         },
-        cmd: 'M101 [DISTANCE]'
+      },
+      cmd: "M101 [DISTANCE]",
     },
     {
-        opcode: 'stepperturn',
-        blockType: "command",
+      opcode: "stepperturn",
+      blockType: "command",
 
-        text: "$$rosbot_stepperturn",
-        arguments: {
-            DEGREE: {
-                type: "number",
-                defaultValue: 90
-            }
+      text: "$$rosbot_stepperturn",
+      arguments: {
+        DEGREE: {
+          type: "number",
+          defaultValue: 90,
         },
-        cmd: 'M102 [DEGREE]'
+      },
+      cmd: "M102 [DEGREE]",
     },
     {
-        opcode: 'stepperppm',
-        blockType: "command",
+      opcode: "stepperppm",
+      blockType: "command",
 
-        text: "$$rosbot_stepperppm",
-        arguments: {
-            PPM: {
-                type: "number",
-                defaultValue: 14124
-            }
+      text: "$$rosbot_stepperppm",
+      arguments: {
+        PPM: {
+          type: "number",
+          defaultValue: 14124,
         },
-        cmd: 'M104 [PPM]'
+      },
+      cmd: "M104 [PPM]",
     },
     {
-        opcode: 'stepperwheelbase',
-        blockType: "command",
+      opcode: "stepperwheelbase",
+      blockType: "command",
 
-        text: "$$rosbot_stepperwheelbase",
-        arguments: {
-            WHEELBASE: {
-                type: "number",
-                defaultValue: 0.118
-            }
+      text: "$$rosbot_stepperwheelbase",
+      arguments: {
+        WHEELBASE: {
+          type: "number",
+          defaultValue: 0.118,
         },
-        cmd: 'M105 [WHEELBASE]'
+      },
+      cmd: "M105 [WHEELBASE]",
     },
     {
-        opcode: 'stepperarc',
-        blockType: "command",
+      opcode: "stepperarc",
+      blockType: "command",
 
-        text: "$$rosbot_stepperarc",
-        arguments: {
-            RADIUS: {
-                type: "number",
-                defaultValue: 20
-            },
-            DEGREE: {
-                type: "number",
-                defaultValue: 90
-            }
+      text: "$$rosbot_stepperarc",
+      arguments: {
+        RADIUS: {
+          type: "number",
+          defaultValue: 20,
         },
-        cmd: 'M103 [RADIUS] [DEGREE]',
-        sepafter: 36
+        DEGREE: {
+          type: "number",
+          defaultValue: 90,
+        },
+      },
+      cmd: "M103 [RADIUS] [DEGREE]",
+      sepafter: 36,
     },
     /*
     {
@@ -210,436 +208,435 @@
     },
     */
     {
-        opcode: 'pinmode',
-        blockType: "command",
+      opcode: "pinmode",
+      blockType: "command",
 
-        text: "$$rosbot_pinmode",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '13',
-                menu: 'rosbotPin'
-            },
-            MODE: {
-                type: "string",
-                menu: 'pinMode',
-                defaultValue: '0'
-            }
+      text: "$$rosbot_pinmode",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
         },
-        cmd: 'M1 [PIN] [MODE]',
-    },
-    {
-        opcode: 'digitalwrite',
-        blockType: "command",
-
-        text: "$$rosbot_digitalwrite",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '13',
-                menu: 'rosbotPin'
-            },
-            VALUE: {
-                type: "number",
-                menu: 'level',
-                defaultValue: '1'
-            }
+        MODE: {
+          type: "string",
+          menu: "pinMode",
+          defaultValue: "0",
         },
-        cmd: 'M2 [PIN] [VALUE]',
+      },
+      cmd: "M1 [PIN] [MODE]",
     },
     {
-        opcode: 'analogwrite',
-        blockType: "command",
+      opcode: "digitalwrite",
+      blockType: "command",
 
-        text: "$$rosbot_analogwrite",
-        arguments: {
-            PIN: {
-                type: "string",
-                menu: 'analogWritePin',
-                defaultValue: '11'
-            },
-            VALUE: {
-                type: "slider",
-                defaultValue: 120
-            }
+      text: "$$rosbot_digitalwrite",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
         },
-        cmd: 'M4 [PIN] [VALUE]',
-    },
-    {
-        opcode: 'digitalread',
-        blockType: "boolean",
-
-        text: "$$rosbot_digitalread",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '3',
-                menu: 'rosbotPin'
-            }
+        VALUE: {
+          type: "number",
+          menu: "level",
+          defaultValue: "1",
         },
-        cmd: 'M3 [PIN]',
+      },
+      cmd: "M2 [PIN] [VALUE]",
     },
     {
-        opcode: 'analogread',
-        blockType: "reporter",
+      opcode: "analogwrite",
+      blockType: "command",
 
-        text: "$$rosbot_analogread",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: 'A0',
-                menu: 'analogPin'
-            }
+      text: "$$rosbot_analogwrite",
+      arguments: {
+        PIN: {
+          type: "string",
+          menu: "analogWritePin",
+          defaultValue: "11",
         },
-        cmd: 'M5 [PIN]',
-    },
-    {
-        opcode: 'led',
-        blockType: "command",
-
-        text: "$$rosbot_led",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '13',
-                menu: 'rosbotPin'
-            },
-            VALUE: {
-                type: "string",
-                menu: 'ledonoff',
-                defaultValue: '0'
-            }
+        VALUE: {
+          type: "slider",
+          defaultValue: 120,
         },
-        cmd: 'M2 [PIN] [VALUE]',
-        sepafter: 36
-
+      },
+      cmd: "M4 [PIN] [VALUE]",
     },
     {
-        opcode: 'button',
-        blockType: "boolean",
+      opcode: "digitalread",
+      blockType: "boolean",
 
-        text: "$$rosbot_button",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '4',
-                menu: 'rosbotPin'
-            }
+      text: "$$rosbot_digitalread",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "3",
+          menu: "rosbotPin",
         },
-        cmd: 'M10 [PIN]',
+      },
+      cmd: "M3 [PIN]",
     },
     {
-        opcode: 'servo',
-        blockType: "command",
+      opcode: "analogread",
+      blockType: "reporter",
 
-        text: "$$rosbot_servo",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '0',
-                menu: 'extPin'
-            },
-            DEGREE: {
-                type: "slider",
-                defaultValue: 90
-            },
-            SPEED: {
-                type: "slider",
-                defaultValue: 128
-            }
+      text: "$$rosbot_analogread",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "A0",
+          menu: "analogPin",
         },
-        cmd: 'M212 [PIN] [DEGREE] [SPEED]',
+      },
+      cmd: "M5 [PIN]",
     },
     {
-        opcode: 'geekservo',
-        blockType: "command",
+      opcode: "led",
+      blockType: "command",
 
-        text: "$$rosbot_geekservo",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '0',
-                menu: 'extPin'
-            },
-            DEGREE: {
-                type: "number",
-                defaultValue: 90
-            },
-            SPEED: {
-                type: "slider",
-                defaultValue: 128
-            }
+      text: "$$rosbot_led",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
         },
-        cmd: 'M213 [PIN] [DEGREE] [SPEED]',
-    },
-    {
-        opcode: 'tone',
-        blockType: "command",
-
-        text: "$$rosbot_tone",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: 'A0',
-                menu: 'rosbotPin'
-            },
-            FREQ: {
-                type: "number",
-                defaultValue: 200
-            },
-            DURATION: {
-                type: "number",
-                defaultValue: 500
-            }
+        VALUE: {
+          type: "string",
+          menu: "ledonoff",
+          defaultValue: "0",
         },
-        cmd: 'M6 [PIN] [FREQ] [DURATION]',
+      },
+      cmd: "M2 [PIN] [VALUE]",
+      sepafter: 36,
     },
     {
-        opcode: 'rgbbrightness',
-        blockType: "command",
+      opcode: "button",
+      blockType: "boolean",
 
-        text: "$$rosbot_rgbbrightness",
-        arguments: {
-            VALUE: {
-                type: "slider",
-                defaultValue: 100
-            }
+      text: "$$rosbot_button",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "4",
+          menu: "rosbotPin",
         },
-        cmd: 'M11 [VALUE]',
+      },
+      cmd: "M10 [PIN]",
     },
     {
-        opcode: 'rgbpick',
-        blockType: "command",
+      opcode: "servo",
+      blockType: "command",
 
-        text: "$$rosbot_rgbpick",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '4',
-                menu: 'rosbotPin'
-            },
-            PIX: {
-                type: "number",
-                defaultValue: 1
-            },
-            COLOR: {
-                type: "colorrgb"
-            }
+      text: "$$rosbot_servo",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "0",
+          menu: "extPin",
         },
-        cmd: 'M9 [PIN] [PIX] [COLOR]',
-    },
-    {
-        opcode: 'rgb',
-        blockType: "command",
-
-        text: "$$rosbot_rgb",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '4',
-                menu: 'rosbotPin'
-            },
-            PIX: {
-                type: "number",
-                defaultValue: '0',
-                menu: 'rgbPix'
-            },
-            RED: {
-                type: "slider",
-                defaultValue: 100
-            },
-            GREEN: {
-                type: "slider",
-                defaultValue: 150
-            },
-            BLUE: {
-                type: "slider",
-                defaultValue: 0
-            }
+        DEGREE: {
+          type: "slider",
+          defaultValue: 90,
         },
-        cmd: 'M9 [PIN] [PIX] [RED] [GREEN] [BLUE]',
-    },
-    {
-        opcode: 'rgboff',
-        blockType: "command",
-
-        text: "$$rosbot_rgboff",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '4',
-                menu: 'rosbotPin'
-            }
+        SPEED: {
+          type: "slider",
+          defaultValue: 128,
         },
-        cmd: 'M9 [PIN] 0 0 0 0',
+      },
+      cmd: "M212 [PIN] [DEGREE] [SPEED]",
     },
     {
-        opcode: 'distance',
-        blockType: "reporter",
+      opcode: "geekservo",
+      blockType: "command",
 
-        text: "$$rosbot_distance",
-        arguments: {
-            PIN: {
-                type: "string",
-                defaultValue: '2',
-                menu: 'rosbotPin'
-            }
+      text: "$$rosbot_geekservo",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "0",
+          menu: "extPin",
         },
-        cmd: 'M250 [PIN] 99',
-    },
-    {
-        opcode: 'power',
-        blockType: "reporter",
-
-        text: "$$rosbot_power",
-        cmd: 'M8',
-        sepafter: 36
-    },
-    {
-        opcode: 'ps2init',
-        blockType: "command",
-
-        text: "$$rosbot_ps2init",
-        cmd: 'M220',
-    },
-    {
-        opcode: 'ps2axis',
-        blockType: "reporter",
-
-        text: "$$rosbot_ps2axis",
-        arguments: {
-            AXIS: {
-                type: "string",
-                defaultValue: '7',
-                menu: 'axisList'
-            }
+        DEGREE: {
+          type: "number",
+          defaultValue: 90,
         },
-        cmd: 'M221 [AXIS]',
-    },
-    {
-        opcode: 'ps2button',
-        blockType: "reporter",
-
-        text: "$$rosbot_ps2button",
-        arguments: {
-            BUTTON: {
-                type: "string",
-                defaultValue: '13',
-                menu: 'buttonList'
-            }
+        SPEED: {
+          type: "slider",
+          defaultValue: 128,
         },
-        cmd: 'M222 [BUTTON]',
-        sepafter: 36
+      },
+      cmd: "M213 [PIN] [DEGREE] [SPEED]",
     },
     {
-        opcode: 'ledstring',
-        blockType: "command",
+      opcode: "tone",
+      blockType: "command",
 
-        text: "$$rosbot_ledstring",
-        arguments: {
-            STR: {
-                type: "string",
-                defaultValue: 'hello world'
-            }
+      text: "$$rosbot_tone",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "A0",
+          menu: "rosbotPin",
         },
-        cmd: 'M20 [STR]',
-    },
-    {
-        opcode: 'ledmatrix',
-        blockType: "command",
-
-        text: "$$rosbot_ledmatrix",
-        arguments: {
-            MAT: {
-                type: 'ledmatrix',
-                defaultValue: '00000000024000000000042003c00000'
-            }
+        FREQ: {
+          type: "number",
+          defaultValue: 200,
         },
-        cmd: 'M21 [MAT]',
-    },
-    {
-        opcode: 'ledmatrixclear',
-        blockType: "command",
-
-        text: "$$rosbot_ledmatrixclear",
-        cmd: 'M21 00000000000000000000000000000000',
-    },
-    {
-        opcode: 'ledmatrixrect',
-        blockType: "command",
-
-        text: "$$rosbot_ledmatrixrect",
-        arguments: {
-            X: {
-                type: "number",
-                defaultValue: 2
-            },
-            Y: {
-                type: "number",
-                defaultValue: 2
-            },
-            W: {
-                type: "number",
-                defaultValue: 3
-            },
-            H: {
-                type: "number",
-                defaultValue: 3
-            },
-            C: {
-                type: "number",
-                defaultValue: 1
-            }
+        DURATION: {
+          type: "number",
+          defaultValue: 500,
         },
-        cmd: 'M22 [X] [Y] [W] [H] [C]',
+      },
+      cmd: "M6 [PIN] [FREQ] [DURATION]",
     },
     {
-        opcode: 'mp3play',
-        blockType: "command",
+      opcode: "rgbbrightness",
+      blockType: "command",
 
-        text: "$$rosbot_mp3play",
-        arguments: {
-            IO1: {
-                type: "string",
-                defaultValue: '4',
-                menu: 'rosbotPin'
-            },
-            IO2: {
-                type: "string",
-                defaultValue: '7',
-                menu: 'rosbotPin'
-            }
+      text: "$$rosbot_rgbbrightness",
+      arguments: {
+        VALUE: {
+          type: "slider",
+          defaultValue: 100,
         },
-        cmd: 'M31 [IO1] [IO2] 100',
+      },
+      cmd: "M11 [VALUE]",
     },
     {
-        opcode: 'mp3loop',
-        blockType: "command",
+      opcode: "rgbpick",
+      blockType: "command",
 
-        text: "$$rosbot_mp3loop",
-        arguments: {
-            DIR: {
-                type: "string",
-                defaultValue: 'NEXT',
-                menu: 'mp3direction'
-            }
+      text: "$$rosbot_rgbpick",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "4",
+          menu: "rosbotPin",
         },
-        cmd: 'M30 [DIR] 100',
+        PIX: {
+          type: "number",
+          defaultValue: 1,
+        },
+        COLOR: {
+          type: "colorrgb",
+        },
+      },
+      cmd: "M9 [PIN] [PIX] [COLOR]",
     },
     {
-        opcode: 'mp3volumn',
-        blockType: "command",
+      opcode: "rgb",
+      blockType: "command",
 
-        text: "$$rosbot_mp3volumn",
-        arguments: {
-            VOLUMN: {
-                type: "string",
-                defaultValue: 'UP',
-                menu: 'volumnList'
-            }
+      text: "$$rosbot_rgb",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "4",
+          menu: "rosbotPin",
         },
-        cmd: 'M30 [VOLUMN] 500',
-    }
+        PIX: {
+          type: "number",
+          defaultValue: "0",
+          menu: "rgbPix",
+        },
+        RED: {
+          type: "slider",
+          defaultValue: 100,
+        },
+        GREEN: {
+          type: "slider",
+          defaultValue: 150,
+        },
+        BLUE: {
+          type: "slider",
+          defaultValue: 0,
+        },
+      },
+      cmd: "M9 [PIN] [PIX] [RED] [GREEN] [BLUE]",
+    },
+    {
+      opcode: "rgboff",
+      blockType: "command",
+
+      text: "$$rosbot_rgboff",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "4",
+          menu: "rosbotPin",
+        },
+      },
+      cmd: "M9 [PIN] 0 0 0 0",
+    },
+    {
+      opcode: "distance",
+      blockType: "reporter",
+
+      text: "$$rosbot_distance",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "2",
+          menu: "rosbotPin",
+        },
+      },
+      cmd: "M250 [PIN] 99",
+    },
+    {
+      opcode: "power",
+      blockType: "reporter",
+
+      text: "$$rosbot_power",
+      cmd: "M8",
+      sepafter: 36,
+    },
+    {
+      opcode: "ps2init",
+      blockType: "command",
+
+      text: "$$rosbot_ps2init",
+      cmd: "M220",
+    },
+    {
+      opcode: "ps2axis",
+      blockType: "reporter",
+
+      text: "$$rosbot_ps2axis",
+      arguments: {
+        AXIS: {
+          type: "string",
+          defaultValue: "7",
+          menu: "axisList",
+        },
+      },
+      cmd: "M221 [AXIS]",
+    },
+    {
+      opcode: "ps2button",
+      blockType: "reporter",
+
+      text: "$$rosbot_ps2button",
+      arguments: {
+        BUTTON: {
+          type: "string",
+          defaultValue: "13",
+          menu: "buttonList",
+        },
+      },
+      cmd: "M222 [BUTTON]",
+      sepafter: 36,
+    },
+    {
+      opcode: "ledstring",
+      blockType: "command",
+
+      text: "$$rosbot_ledstring",
+      arguments: {
+        STR: {
+          type: "string",
+          defaultValue: "hello world",
+        },
+      },
+      cmd: "M20 [STR]",
+    },
+    {
+      opcode: "ledmatrix",
+      blockType: "command",
+
+      text: "$$rosbot_ledmatrix",
+      arguments: {
+        MAT: {
+          type: "ledmatrix",
+          defaultValue: "00000000024000000000042003c00000",
+        },
+      },
+      cmd: "M21 [MAT]",
+    },
+    {
+      opcode: "ledmatrixclear",
+      blockType: "command",
+
+      text: "$$rosbot_ledmatrixclear",
+      cmd: "M21 00000000000000000000000000000000",
+    },
+    {
+      opcode: "ledmatrixrect",
+      blockType: "command",
+
+      text: "$$rosbot_ledmatrixrect",
+      arguments: {
+        X: {
+          type: "number",
+          defaultValue: 2,
+        },
+        Y: {
+          type: "number",
+          defaultValue: 2,
+        },
+        W: {
+          type: "number",
+          defaultValue: 3,
+        },
+        H: {
+          type: "number",
+          defaultValue: 3,
+        },
+        C: {
+          type: "number",
+          defaultValue: 1,
+        },
+      },
+      cmd: "M22 [X] [Y] [W] [H] [C]",
+    },
+    {
+      opcode: "mp3play",
+      blockType: "command",
+
+      text: "$$rosbot_mp3play",
+      arguments: {
+        IO1: {
+          type: "string",
+          defaultValue: "4",
+          menu: "rosbotPin",
+        },
+        IO2: {
+          type: "string",
+          defaultValue: "7",
+          menu: "rosbotPin",
+        },
+      },
+      cmd: "M31 [IO1] [IO2] 100",
+    },
+    {
+      opcode: "mp3loop",
+      blockType: "command",
+
+      text: "$$rosbot_mp3loop",
+      arguments: {
+        DIR: {
+          type: "string",
+          defaultValue: "NEXT",
+          menu: "mp3direction",
+        },
+      },
+      cmd: "M30 [DIR] 100",
+    },
+    {
+      opcode: "mp3volumn",
+      blockType: "command",
+
+      text: "$$rosbot_mp3volumn",
+      arguments: {
+        VOLUMN: {
+          type: "string",
+          defaultValue: "UP",
+          menu: "volumnList",
+        },
+      },
+      cmd: "M30 [VOLUMN] 500",
+    },
   ],
   menus: {
     pinMode: [
@@ -654,6 +651,12 @@
     onoff: [
       { text: "on", value: "0" },
       { text: "off", value: "1" },
+    ],
+    motorIndex: [
+      { text: "M1A", value: "0" },
+      { text: "M1B", value: "1" },
+      { text: "M2A", value: "2" },
+      { text: "M2B", value: "3" },
     ],
     blinkCmd: ["blink", "stop"],
     digiPin: [
@@ -678,13 +681,60 @@
       "A4",
       "A5",
     ],
+    extPin: ['4', '7', '8', '11', '12', '13', 'A0', 'A1', 'A2', 'A3'],
+    rosbotPin: [
+      { text: "2", value: "2" },
+      { text: "3", value: "3" },
+      { text: "4", value: "4" },
+      { text: "5", value: "5" },
+      { text: "6", value: "6" },
+      { text: "7", value: "7" },
+      { text: "8", value: "8" },
+      { text: "9", value: "9" },
+      { text: "10", value: "10" },
+      { text: "11", value: "11" },
+      { text: "12", value: "12" },
+      { text: "13", value: "13" },
+      { text: "A0", value: "A0" },
+      { text: "A1", value: "A1" },
+      { text: "A2", value: "A2" },
+      { text: "A3", value: "A3" },
+      { text: "A4", value: "A4" },
+      { text: "A5", value: "A5" },
+    ],
     analogPin: ["A0", "A1", "A2", "A3", "A4", "A5"],
     analogWritePin: ["3", "5", "6", "9", "10", "11"],
+    ledonoff: [{text: 'ON', value: '0'}, {text: 'OFF', value: '1'}],
     serialtype: [
       { text: "Serial", value: "Serial" },
       { text: "Soft Serial", value: "softser" },
     ],
+    axisList: [
+        {text: 'L-X', value: '7'},
+        {text: 'L-Y', value: '8'},
+        {text: 'R-X', value: '5'},
+        {text: 'R-Y', value: '6'}
+    ],
     StrTypo: ["HEX", "BIN", "DEC"],
     Typo: ["byte", "char", "int", "long", "word", "float"],
+    volumnList: ['UP', 'DOWN'],
+    mp3direction: ['NEXT', 'PREVIOUS'],
+    buttonList: [
+      {text: '→', value: 9},
+      {text: '↑', value: 11},
+      {text: '↓', value: 12},
+      {text: '←', value: 10},
+
+      {text: '▲', value: 13},
+      {text: '●', value: 14},
+      {text: '×', value: 15},
+      {text: '■', value: 16},
+
+      {text: 'L2', value: 19},
+      {text: 'R2', value: 20},
+      {text: 'L1', value: 17},
+      {text: 'R1', value: 18},
+    ],
+    rgbPix: [{text: 'ALL', value: 0}, '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
   },
 }
