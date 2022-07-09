@@ -20,6 +20,10 @@
         },
       },
       cmd: "M200 [MOTOR] [SPEED]",
+      arduino: {
+        cpp: 'kb.motorSetSpeed([MOTOR],[SPEED])',
+        object: 'kb'
+      }
     },
     {
       opcode: "motordual",
@@ -37,6 +41,10 @@
         },
       },
       cmd: "M204 [SPDM1A] [SPDM1B] 0",
+      arduino: {
+        cpp: 'kb.motorRun2([SPDM1A],[SPDM1B])',
+        object: 'kb'
+      }
     },
     {
       opcode: "motordualdelay",
@@ -58,6 +66,10 @@
         },
       },
       cmd: "M204 [SPDM1A] [SPDM1B] [DELAY]",
+      arduino: {
+        cpp: 'kb.motorRun2Delay([SPDM1A],[SPDM1B],[DELAY])',
+        object: 'kb'
+      }
     },
     {
       opcode: "motorfour",
@@ -83,6 +95,10 @@
         },
       },
       cmd: "M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]",
+      arduino: {
+        cpp: 'kb.motorRun4([SPDM1A],[SPDM1B],[SPDM2A],[SPDM2B])',
+        object: 'kb'
+      }
     },
     {
       opcode: "omniwheel",
@@ -104,12 +120,20 @@
         },
       },
       cmd: "M209 [SPDX] [SPDY] [SPDR]",
+      arduino: {
+        cpp: 'kb.omniWheel([SPDX],[SPDY],[SPDR])',
+        object: 'kb'
+      }
     },
     {
       opcode: "stop",
       blockType: "command",
       text: "$$rosbot_stop",
       cmd: "M203",
+      arduino: {
+        cpp: 'kb.motorStop()',
+        object: 'kb'
+      },
       sepafter: 36,
     },
     {
@@ -124,6 +148,10 @@
         },
       },
       cmd: "M101 [DISTANCE]",
+      arduino: {
+        cpp: 'kb.stepLine([DISTANCE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "stepperturn",
@@ -137,6 +165,10 @@
         },
       },
       cmd: "M102 [DEGREE]",
+      arduino: {
+        cpp: 'kb.stepTurn([DEGREE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "stepperppm",
@@ -150,6 +182,10 @@
         },
       },
       cmd: "M104 [PPM]",
+      arduino: {
+        cpp: 'kb.ppm([PPM])',
+        object: 'kb'
+      },
     },
     {
       opcode: "stepperwheelbase",
@@ -163,6 +199,10 @@
         },
       },
       cmd: "M105 [WHEELBASE]",
+      arduino: {
+        cpp: 'kb.baseWidth([WHEELBASE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "stepperarc",
@@ -180,6 +220,10 @@
         },
       },
       cmd: "M103 [RADIUS] [DEGREE]",
+      arduino: {
+        cpp: 'kb.stepArc([RADIUS],[DEGREE])',
+        object: 'kb'
+      },
       sepafter: 36,
     },
     /*
