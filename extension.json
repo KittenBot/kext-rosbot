@@ -31,7 +31,7 @@
             "VarSpeedServo.zip"
         ],
         "objects": {
-            "kittenbot": {
+            "kb": {
                 "import": "#include \"KittenBot.h\"",
                 "object": "KittenBot kb;",
                 "setup": "kb.init()"

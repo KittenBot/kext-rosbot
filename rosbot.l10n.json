@@ -1,5 +1,7 @@
 {
   "en": {
+    "rosbot_arduinosetup": "Arduino Setup",
+    "rosbot_arduinoloop": "Arduino Loop",
     "rosbot_motorspeed": "Motor [MOTOR] Move [SPEED]",
     "rosbot_motordual": "Motor M1A[SPDM1A] M1B[SPDM1B]",
     "rosbot_motordualdelay": "Motor M1A[SPDM1A] M1B[SPDM1B] Delay[DELAY]ms",
@@ -39,6 +41,8 @@
     "rosbot_mp3volumn": "MP3 Volumn [VOLUMN]"
   },
   "zh-cn": {
+    "rosbot_arduinosetup": "Arduino 初始化",
+    "rosbot_arduinoloop": "重复执行",
     "rosbot_motorspeed": "电机 [MOTOR] 移动 [SPEED]",
     "rosbot_motordual": "电机 M1A[SPDM1A] M1B[SPDM1B]",
     "rosbot_motordualdelay": "电机 M1A[SPDM1A] M1B[SPDM1B] 延时[DELAY]ms",

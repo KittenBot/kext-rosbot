@@ -4,6 +4,20 @@
   color3: "#AA3F5B",
   blocks: [
     {
+      opcode: 'arduinostart',
+      blockType: 'conditional',
+      branchCount: 2,
+      isTerminal: true,
+      message2: 'loop',
+      text: [
+        "$$rosbot_arduinosetup",
+        "$$rosbot_arduinoloop"
+      ],
+      mode: ['arduino'],
+      hatType: true,
+      cpp: ['void setup()', 'void loop()']
+    },
+    {
       opcode: "motorspeed",
       blockType: "command",
 
