@@ -8,6 +8,9 @@
         "en": "A robot controller based on arduino 328p",
         "zh-cn": "基于arduino 328p的机器人主板"
     },
+    "color1": "#DE5277",
+    "color2": "#AA3F5B",
+    "color3": "#AA3F5B",
     "version": "2.2.3",
     "listdevice": {
         "pid": "0x7523",
