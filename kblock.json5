@@ -306,7 +306,6 @@
     {
       opcode: "analogwrite",
       blockType: "command",
-
       text: "$$rosbot_analogwrite",
       arguments: {
         PIN: {
@@ -323,8 +322,7 @@
     },
     {
       opcode: "digitalread",
-      blockType: "boolean",
-
+      blockType: "Boolean",
       text: "$$rosbot_digitalread",
       arguments: {
         PIN: {
@@ -371,7 +369,7 @@
     },
     {
       opcode: "button",
-      blockType: "boolean",
+      blockType: "Boolean",
 
       text: "$$rosbot_button",
       arguments: {
