@@ -2,7 +2,7 @@
     "id": "rosbot",
     "name": {
         "en": "Rosbot",
-        "zh-cn": "Rosbot主板"
+        "zh-cn": "Rosbot"
     },
     "description": {
         "en": "A robot controller based on arduino 328p",
@@ -11,7 +11,7 @@
     "color1": "#DE5277",
     "color2": "#AA3F5B",
     "color3": "#AA3F5B",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "listdevice": {
         "pid": "0x7523",
         "vid": "0x1a86"
