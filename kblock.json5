@@ -307,6 +307,10 @@
         },
       },
       cmd: "M1 [PIN] [MODE]",
+      arduino: {
+        cpp: 'pinMode([PIN],[MODE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "digitalwrite",
@@ -326,6 +330,10 @@
         },
       },
       cmd: "M2 [PIN] [VALUE]",
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "analogwrite",
@@ -345,6 +353,10 @@
         },
       },
       cmd: "M4 [PIN] [VALUE]",
+      arduino: {
+        cpp: 'analogWrite([PIN],[VALUE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "digitalread",
@@ -358,6 +370,10 @@
         },
       },
       cmd: "M3 [PIN]",
+      arduino: {
+        cpp: 'digitalRead([PIN])',
+        object: 'kb'
+      },
     },
     {
       opcode: "analogread",
@@ -372,11 +388,14 @@
         },
       },
       cmd: "M5 [PIN]",
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      },
     },
     {
       opcode: "led",
       blockType: "command",
-
       text: "$$rosbot_led",
       arguments: {
         PIN: {
@@ -391,6 +410,10 @@
         },
       },
       cmd: "M2 [PIN] [VALUE]",
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      },
       sepafter: 36,
     },
     {
@@ -406,6 +429,10 @@
         },
       },
       cmd: "M10 [PIN]",
+      arduino: {
+        cpp: '(!digitalRead([PIN]))',
+        object: 'kb'
+      },
     },
     {
       opcode: "servo",
@@ -432,11 +459,14 @@
         },
       },
       cmd: "M212 [PIN] [DEGREE] [SPEED]",
+      arduino: {
+        cpp: 'kb.servoArray([PIN],[DEGREE],[SPEED])',
+        object: 'kb'
+      },
     },
     {
       opcode: "geekservo",
       blockType: "command",
-
       text: "$$rosbot_geekservo",
       arguments: {
         PIN: {
@@ -456,11 +486,14 @@
         },
       },
       cmd: "M213 [PIN] [DEGREE] [SPEED]",
+      arduino: {
+        cpp: 'kb.geekServoArray([PIN],[DEGREE],[SPEED])',
+        object: 'kb'
+      },
     },
     {
       opcode: "tone",
       blockType: "command",
-
       text: "$$rosbot_tone",
       arguments: {
         PIN: {
@@ -478,6 +511,10 @@
         },
       },
       cmd: "M6 [PIN] [FREQ] [DURATION]",
+      arduino: {
+        cpp: 'kb.buzzTone([PIN],[FREQ],[DURATION])',
+        object: 'kb'
+      },
     },
     {
       opcode: "rgbbrightness",
@@ -493,6 +530,10 @@
         },
       },
       cmd: "M11 [VALUE]",
+      arduino: {
+        cpp: 'kb.rgbBrightness([VALUE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "rgbpick",
@@ -515,11 +556,14 @@
         },
       },
       cmd: "M9 [PIN] [PIX] [COLOR]",
+      arduino: {
+        cpp: 'kb.rgbShow([PIN],[PIX],[COLOR])',
+        object: 'kb'
+      },
     },
     {
       opcode: "rgb",
       blockType: "command",
-
       text: "$$rosbot_rgb",
       arguments: {
         PIN: {
@@ -552,6 +596,10 @@
         },
       },
       cmd: "M9 [PIN] [PIX] [RED] [GREEN] [BLUE]",
+      arduino: {
+        cpp: 'kb.rgbShow([PIN],[PIX],[RED],[GREEN],[BLUE])',
+        object: 'kb'
+      },
     },
     {
       opcode: "rgboff",
@@ -566,6 +614,10 @@
         },
       },
       cmd: "M9 [PIN] 0 0 0 0",
+      arduino: {
+        cpp: 'kb.rgbShow([PIN],0,0,0,0)',
+        object: 'kb'
+      },
     },
     {
       opcode: "distance",
@@ -580,6 +632,10 @@
         },
       },
       cmd: "M250 [PIN] 99",
+      arduino: {
+        cpp: '(kb.ultrasonic([PIN]))',
+        object: 'kb'
+      },
     },
     {
       opcode: "power",
@@ -588,6 +644,10 @@
       text: "$$rosbot_power",
       cmd: "M8",
       sepafter: 36,
+      arduino: {
+        cpp: '(kb.getBatteryVoltage())',
+        object: 'kb'
+      },
     },
     {
       opcode: "ps2init",
@@ -595,6 +655,10 @@
 
       text: "$$rosbot_ps2init",
       cmd: "M220",
+      arduino: {
+        cpp: 'kb.ps2Init()',
+        object: 'kb'
+      },
     },
     {
       opcode: "ps2axis",
@@ -609,6 +673,10 @@
         },
       },
       cmd: "M221 [AXIS]",
+      arduino: {
+        cpp: '(kb.ps2Axis([AXIS]))',
+        object: 'kb'
+      },
     },
     {
       opcode: "ps2button",
@@ -623,6 +691,10 @@
         },
       },
       cmd: "M222 [BUTTON]",
+      arduino: {
+        cpp: '(kb.ps2ReadButton([BUTTON]))',
+        object: 'kb'
+      },
       sepafter: 36,
     },
     {
@@ -637,6 +709,10 @@
         },
       },
       cmd: "M20 [STR]",
+      arduino: {
+        cpp: 'kb.matrixShowString([STR])',
+        object: 'kb'
+      },
     },
     {
       opcode: "ledmatrix",
@@ -650,6 +726,10 @@
         },
       },
       cmd: "M21 [MAT]",
+      arduino: {
+        cpp: 'kb.matrixShow([MAT])',
+        object: 'kb'
+      },
     },
     {
       opcode: "ledmatrixclear",
@@ -657,6 +737,10 @@
 
       text: "$$rosbot_ledmatrixclear",
       cmd: "M21 00000000000000000000000000000000",
+      arduino: {
+        cpp: 'kb.matrixShow("00000000000000000000000000000000")',
+        object: 'kb'
+      },
     },
     {
       opcode: "ledmatrixrect",
@@ -686,6 +770,10 @@
         },
       },
       cmd: "M22 [X] [Y] [W] [H] [C]",
+      arduino: {
+        cpp: 'kb.matrixFillRect([X],[Y],[W],[H],[C])',
+        object: 'kb'
+      },
     },
     {
       opcode: "mp3play",
@@ -705,11 +793,14 @@
         },
       },
       cmd: "M31 [IO1] [IO2] 100",
+      arduino: {
+        cpp: 'kb.extIoSet([IO1],[IO2], 100)',
+        object: 'kb'
+      },
     },
     {
       opcode: "mp3loop",
       blockType: "command",
-
       text: "$$rosbot_mp3loop",
       arguments: {
         DIR: {
@@ -719,11 +810,14 @@
         },
       },
       cmd: "M30 [DIR] 100",
+      arduino: {
+        cpp: 'kb.extIo(0,1, 100)', // TODO
+        object: 'kb'
+      },
     },
     {
       opcode: "mp3volumn",
       blockType: "command",
-
       text: "$$rosbot_mp3volumn",
       arguments: {
         VOLUMN: {
@@ -733,6 +827,10 @@
         },
       },
       cmd: "M30 [VOLUMN] 500",
+      arduino: {
+        cpp: 'kb.extIo(0,1, 500)', // TODO
+        object: 'kb'
+      },
     },
   ],
   menus: {
@@ -779,16 +877,16 @@
       "A5",
     ],
     extPin: [
-      { text: "4", value: "4" },
-      { text: "7", value: "7" },
-      { text: "8", value: "8" },
-      { text: "11", value: "11" },
-      { text: "12", value: "12" },
-      { text: "13", value: "13" },
-      { text: "A0", value: "A0" },
-      { text: "A1", value: "A1" },
-      { text: "A2", value: "A2" },
-      { text: "A3", value: "A3" },
+      { text: "4", value: "0" },
+      { text: "7", value: "1" },
+      { text: "8", value: "2" },
+      { text: "11", value: "3" },
+      { text: "12", value: "4" },
+      { text: "13", value: "5" },
+      { text: "A0", value: "6" },
+      { text: "A1", value: "7" },
+      { text: "A2", value: "8" },
+      { text: "A3", value: "9" },
     ],
     rosbotPin: [
       { text: "2", value: "2" },
