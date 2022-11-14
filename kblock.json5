@@ -4,18 +4,15 @@
   color3: "#AA3F5B",
   blocks: [
     {
-      opcode: 'arduinostart',
-      blockType: 'conditional',
+      opcode: "arduinostart",
+      blockType: "conditional",
       branchCount: 2,
       isTerminal: true,
-      message2: 'loop',
-      text: [
-        "$$rosbot_arduinosetup",
-        "$$rosbot_arduinoloop"
-      ],
-      mode: ['arduino'],
+      message2: "loop",
+      text: ["$$rosbot_arduinosetup", "$$rosbot_arduinoloop"],
+      mode: ["arduino"],
       hatType: true,
-      cpp: ['void setup()', 'void loop()']
+      cpp: ["void setup()", "void loop()"],
     },
     {
       opcode: "motorspeed",
@@ -37,9 +34,9 @@
       },
       cmd: "M200 [MOTOR] [SPEED]",
       arduino: {
-        cpp: 'kb.motorSetSpeed([MOTOR],[SPEED])',
-        object: 'kb'
-      }
+        cpp: "kb.motorSetSpeed([MOTOR],[SPEED])",
+        object: "kb",
+      },
     },
     {
       opcode: "motordual",
@@ -62,9 +59,9 @@
       },
       cmd: "M204 [SPDM1A] [SPDM1B] 0",
       arduino: {
-        cpp: 'kb.motorRun2([SPDM1A],[SPDM1B])',
-        object: 'kb'
-      }
+        cpp: "kb.motorRun2([SPDM1A],[SPDM1B])",
+        object: "kb",
+      },
     },
     {
       opcode: "motordualdelay",
@@ -91,9 +88,9 @@
       },
       cmd: "M204 [SPDM1A] [SPDM1B] [DELAY]",
       arduino: {
-        cpp: 'kb.motorRun2Delay([SPDM1A],[SPDM1B],[DELAY])',
-        object: 'kb'
-      }
+        cpp: "kb.motorRun2Delay([SPDM1A],[SPDM1B],[DELAY])",
+        object: "kb",
+      },
     },
     {
       opcode: "motorfour",
@@ -128,9 +125,9 @@
       },
       cmd: "M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]",
       arduino: {
-        cpp: 'kb.motorRun4([SPDM1A],[SPDM1B],[SPDM2A],[SPDM2B])',
-        object: 'kb'
-      }
+        cpp: "kb.motorRun4([SPDM1A],[SPDM1B],[SPDM2A],[SPDM2B])",
+        object: "kb",
+      },
     },
     {
       opcode: "omniwheel",
@@ -159,9 +156,9 @@
       },
       cmd: "M209 [SPDX] [SPDY] [SPDR]",
       arduino: {
-        cpp: 'kb.omniWheel([SPDX],[SPDY],[SPDR])',
-        object: 'kb'
-      }
+        cpp: "kb.omniWheel([SPDX],[SPDY],[SPDR])",
+        object: "kb",
+      },
     },
     {
       opcode: "stop",
@@ -169,8 +166,8 @@
       text: "$$rosbot_stop",
       cmd: "M203",
       arduino: {
-        cpp: 'kb.motorStop()',
-        object: 'kb'
+        cpp: "kb.motorStop()",
+        object: "kb",
       },
       sepafter: 36,
     },
@@ -187,8 +184,8 @@
       },
       cmd: "M101 [DISTANCE]",
       arduino: {
-        cpp: 'kb.stepLine([DISTANCE])',
-        object: 'kb'
+        cpp: "kb.stepLine([DISTANCE])",
+        object: "kb",
       },
     },
     {
@@ -204,8 +201,8 @@
       },
       cmd: "M102 [DEGREE]",
       arduino: {
-        cpp: 'kb.stepTurn([DEGREE])',
-        object: 'kb'
+        cpp: "kb.stepTurn([DEGREE])",
+        object: "kb",
       },
     },
     {
@@ -221,8 +218,8 @@
       },
       cmd: "M104 [PPM]",
       arduino: {
-        cpp: 'kb.ppm([PPM])',
-        object: 'kb'
+        cpp: "kb.ppm([PPM])",
+        object: "kb",
       },
     },
     {
@@ -238,8 +235,8 @@
       },
       cmd: "M105 [WHEELBASE]",
       arduino: {
-        cpp: 'kb.baseWidth([WHEELBASE])',
-        object: 'kb'
+        cpp: "kb.baseWidth([WHEELBASE])",
+        object: "kb",
       },
     },
     {
@@ -259,8 +256,8 @@
       },
       cmd: "M103 [RADIUS] [DEGREE]",
       arduino: {
-        cpp: 'kb.stepArc([RADIUS],[DEGREE])',
-        object: 'kb'
+        cpp: "kb.stepArc([RADIUS],[DEGREE])",
+        object: "kb",
       },
       sepafter: 36,
     },
@@ -308,8 +305,8 @@
       },
       cmd: "M1 [PIN] [MODE]",
       arduino: {
-        cpp: 'pinMode([PIN],[MODE])',
-        object: 'kb'
+        cpp: "pinMode([PIN],[MODE])",
+        object: "kb",
       },
     },
     {
@@ -331,8 +328,8 @@
       },
       cmd: "M2 [PIN] [VALUE]",
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
-        object: 'kb'
+        cpp: "digitalWrite([PIN],[VALUE])",
+        object: "kb",
       },
     },
     {
@@ -354,8 +351,8 @@
       },
       cmd: "M4 [PIN] [VALUE]",
       arduino: {
-        cpp: 'analogWrite([PIN],[VALUE])',
-        object: 'kb'
+        cpp: "analogWrite([PIN],[VALUE])",
+        object: "kb",
       },
     },
     {
@@ -371,8 +368,8 @@
       },
       cmd: "M3 [PIN]",
       arduino: {
-        cpp: 'digitalRead([PIN])',
-        object: 'kb'
+        cpp: "digitalRead([PIN])",
+        object: "kb",
       },
     },
     {
@@ -389,8 +386,8 @@
       },
       cmd: "M5 [PIN]",
       arduino: {
-        cpp: 'analogRead([PIN])',
-        object: 'kb'
+        cpp: "analogRead([PIN])",
+        object: "kb",
       },
     },
     {
@@ -411,8 +408,8 @@
       },
       cmd: "M2 [PIN] [VALUE]",
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
-        object: 'kb'
+        cpp: "digitalWrite([PIN],[VALUE])",
+        object: "kb",
       },
       sepafter: 36,
     },
@@ -430,8 +427,8 @@
       },
       cmd: "M10 [PIN]",
       arduino: {
-        cpp: '(!digitalRead([PIN]))',
-        object: 'kb'
+        cpp: "(!digitalRead([PIN]))",
+        object: "kb",
       },
     },
     {
@@ -460,8 +457,8 @@
       },
       cmd: "M212 [PIN] [DEGREE] [SPEED]",
       arduino: {
-        cpp: 'kb.servoArray([PIN],[DEGREE],[SPEED])',
-        object: 'kb'
+        cpp: "kb.servoArray([PIN],[DEGREE],[SPEED])",
+        object: "kb",
       },
     },
     {
@@ -487,8 +484,8 @@
       },
       cmd: "M213 [PIN] [DEGREE] [SPEED]",
       arduino: {
-        cpp: 'kb.geekServoArray([PIN],[DEGREE],[SPEED])',
-        object: 'kb'
+        cpp: "kb.geekServoArray([PIN],[DEGREE],[SPEED])",
+        object: "kb",
       },
     },
     {
@@ -512,8 +509,8 @@
       },
       cmd: "M6 [PIN] [FREQ] [DURATION]",
       arduino: {
-        cpp: 'kb.buzzTone([PIN],[FREQ],[DURATION])',
-        object: 'kb'
+        cpp: "kb.buzzTone([PIN],[FREQ],[DURATION])",
+        object: "kb",
       },
     },
     {
@@ -526,13 +523,13 @@
           type: "slider",
           defaultValue: 100,
           min: 0,
-          max: 255
+          max: 255,
         },
       },
       cmd: "M11 [VALUE]",
       arduino: {
-        cpp: 'kb.rgbBrightness([VALUE])',
-        object: 'kb'
+        cpp: "kb.rgbBrightness([VALUE])",
+        object: "kb",
       },
     },
     {
@@ -557,8 +554,8 @@
       },
       cmd: "M9 [PIN] [PIX] [COLOR]",
       arduino: {
-        cpp: 'kb.rgbShow([PIN],[PIX],[COLOR])',
-        object: 'kb'
+        cpp: "kb.rgbShow([PIN],[PIX],[COLOR])",
+        object: "kb",
       },
     },
     {
@@ -597,8 +594,8 @@
       },
       cmd: "M9 [PIN] [PIX] [RED] [GREEN] [BLUE]",
       arduino: {
-        cpp: 'kb.rgbShow([PIN],[PIX],[RED],[GREEN],[BLUE])',
-        object: 'kb'
+        cpp: "kb.rgbShow([PIN],[PIX],[RED],[GREEN],[BLUE])",
+        object: "kb",
       },
     },
     {
@@ -615,8 +612,8 @@
       },
       cmd: "M9 [PIN] 0 0 0 0",
       arduino: {
-        cpp: 'kb.rgbShow([PIN],0,0,0,0)',
-        object: 'kb'
+        cpp: "kb.rgbShow([PIN],0,0,0,0)",
+        object: "kb",
       },
     },
     {
@@ -633,8 +630,8 @@
       },
       cmd: "M250 [PIN] 99",
       arduino: {
-        cpp: '(kb.ultrasonic([PIN]))',
-        object: 'kb'
+        cpp: "(kb.ultrasonic([PIN]))",
+        object: "kb",
       },
     },
     {
@@ -645,8 +642,8 @@
       cmd: "M8",
       sepafter: 36,
       arduino: {
-        cpp: '(kb.getBatteryVoltage())',
-        object: 'kb'
+        cpp: "(kb.getBatteryVoltage())",
+        object: "kb",
       },
     },
     {
@@ -656,8 +653,8 @@
       text: "$$rosbot_ps2init",
       cmd: "M220",
       arduino: {
-        cpp: 'kb.ps2Init()',
-        object: 'kb'
+        cpp: "kb.ps2Init()",
+        object: "kb",
       },
     },
     {
@@ -674,8 +671,8 @@
       },
       cmd: "M221 [AXIS]",
       arduino: {
-        cpp: '(kb.ps2Axis([AXIS]))',
-        object: 'kb'
+        cpp: "(kb.ps2Axis([AXIS]))",
+        object: "kb",
       },
     },
     {
@@ -692,8 +689,8 @@
       },
       cmd: "M222 [BUTTON]",
       arduino: {
-        cpp: '(kb.ps2ReadButton([BUTTON]))',
-        object: 'kb'
+        cpp: "(kb.ps2ReadButton([BUTTON]))",
+        object: "kb",
       },
       sepafter: 36,
     },
@@ -710,8 +707,8 @@
       },
       cmd: "M20 [STR]",
       arduino: {
-        cpp: 'kb.matrixShowString([STR])',
-        object: 'kb'
+        cpp: "kb.matrixShowString([STR])",
+        object: "kb",
       },
     },
     {
@@ -727,8 +724,8 @@
       },
       cmd: "M21 [MAT]",
       arduino: {
-        cpp: 'kb.matrixShow([MAT])',
-        object: 'kb'
+        cpp: "kb.matrixShow([MAT])",
+        object: "kb",
       },
     },
     {
@@ -739,7 +736,7 @@
       cmd: "M21 00000000000000000000000000000000",
       arduino: {
         cpp: 'kb.matrixShow("00000000000000000000000000000000")',
-        object: 'kb'
+        object: "kb",
       },
     },
     {
@@ -771,8 +768,8 @@
       },
       cmd: "M22 [X] [Y] [W] [H] [C]",
       arduino: {
-        cpp: 'kb.matrixFillRect([X],[Y],[W],[H],[C])',
-        object: 'kb'
+        cpp: "kb.matrixFillRect([X],[Y],[W],[H],[C])",
+        object: "kb",
       },
     },
     {
@@ -794,8 +791,8 @@
       },
       cmd: "M31 [IO1] [IO2] 100",
       arduino: {
-        cpp: 'kb.extIoSet([IO1],[IO2], 100)',
-        object: 'kb'
+        cpp: "kb.extIoSet([IO1],[IO2], 100)",
+        object: "kb",
       },
     },
     {
@@ -804,15 +801,15 @@
       text: "$$rosbot_mp3loop",
       arguments: {
         DIR: {
-          type: "string",
-          defaultValue: "NEXT",
+          type: "number",
+          defaultValue: "0, 1",
           menu: "mp3direction",
         },
       },
       cmd: "M30 [DIR] 100",
       arduino: {
-        cpp: 'kb.extIo(0,1, 100)', // TODO
-        object: 'kb'
+        cpp: "kb.extIo([DIR], 100)", // TODO
+        object: "kb",
       },
     },
     {
@@ -821,15 +818,15 @@
       text: "$$rosbot_mp3volumn",
       arguments: {
         VOLUMN: {
-          type: "string",
-          defaultValue: "UP",
+          type: "number",
+          defaultValue: "0, 1",
           menu: "volumnList",
         },
       },
       cmd: "M30 [VOLUMN] 500",
       arduino: {
-        cpp: 'kb.extIo(0,1, 500)', // TODO
-        object: 'kb'
+        cpp: "kb.extIo([VOLUMN], 500)", // TODO
+        object: "kb",
       },
     },
   ],
@@ -910,37 +907,65 @@
     ],
     analogPin: ["A0", "A1", "A2", "A3", "A4", "A5"],
     analogWritePin: ["3", "5", "6", "9", "10", "11"],
-    ledonoff: [{text: 'ON', value: '0'}, {text: 'OFF', value: '1'}],
+    ledonoff: [
+      { text: "ON", value: "0" },
+      { text: "OFF", value: "1" },
+    ],
     serialtype: [
       { text: "Serial", value: "Serial" },
       { text: "Soft Serial", value: "softser" },
     ],
     axisList: [
-        {text: 'L-X', value: '7'},
-        {text: 'L-Y', value: '8'},
-        {text: 'R-X', value: '5'},
-        {text: 'R-Y', value: '6'}
+      { text: "L-X", value: "7" },
+      { text: "L-Y", value: "8" },
+      { text: "R-X", value: "5" },
+      { text: "R-Y", value: "6" },
     ],
     StrTypo: ["HEX", "BIN", "DEC"],
     Typo: ["byte", "char", "int", "long", "word", "float"],
-    volumnList: ['UP', 'DOWN'],
-    mp3direction: ['NEXT', 'PREVIOUS'],
-    buttonList: [
-      {text: '→', value: 9},
-      {text: '↑', value: 11},
-      {text: '↓', value: 12},
-      {text: '←', value: 10},
-
-      {text: '▲', value: 13},
-      {text: '●', value: 14},
-      {text: '×', value: 15},
-      {text: '■', value: 16},
-
-      {text: 'L2', value: 19},
-      {text: 'R2', value: 20},
-      {text: 'L1', value: 17},
-      {text: 'R1', value: 18},
+    // 'UP', 'DOWN'
+    volumnList: [
+      { text: "UP", value: "0, 1" },
+      { text: "DOWN", value: "1, 0" },
     ],
-    rgbPix: [{text: 'ALL', value: 0}, '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+    // 'NEXT', 'PREVIOUS'
+    mp3direction: [
+      { text: "NEXT", value: "0, 1" },
+      { text: "PREVIOUS", value: "1, 0" },
+    ],
+    buttonList: [
+      { text: "→", value: 9 },
+      { text: "↑", value: 11 },
+      { text: "↓", value: 12 },
+      { text: "←", value: 10 },
+
+      { text: "▲", value: 13 },
+      { text: "●", value: 14 },
+      { text: "×", value: 15 },
+      { text: "■", value: 16 },
+
+      { text: "L2", value: 19 },
+      { text: "R2", value: 20 },
+      { text: "L1", value: 17 },
+      { text: "R1", value: 18 },
+    ],
+    rgbPix: [
+      { text: "ALL", value: 0 },
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+    ],
   },
 }
