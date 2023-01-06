@@ -38,7 +38,10 @@
     "rosbot_ledmatrixrect": "LED Matrix Rect x[X] y[Y] w[W] h[H] on/off[C]",
     "rosbot_mp3play": "MP3 Play [IO1] [IO2]",
     "rosbot_mp3loop": "MP3 [DIR]",
-    "rosbot_mp3volumn": "MP3 Volumn [VOLUMN]"
+    "rosbot_mp3volumn": "MP3 Volumn [VOLUMN]",
+
+    "rosbot_title_wifi": "WiFi",
+    "rosbot_wifi_mqttConnect": "MQTT Connect [SERVER] [CLIENTID]"
   },
   "zh-cn": {
     "rosbot_arduinosetup": "Arduino 初始化",
@@ -79,6 +82,9 @@
     "rosbot_ledmatrixrect": "LED矩阵 x[X] y[Y] 宽[W] 高[H] 亮度[C]",
     "rosbot_mp3play": "MP3播放 [IO1] [IO2]",
     "rosbot_mp3loop": "MP3 [DIR]",
-    "rosbot_mp3volumn": "MP3音量 [VOLUMN]"
+    "rosbot_mp3volumn": "MP3音量 [VOLUMN]",
+
+    "rosbot_title_wifi": "WiFi",
+    "rosbot_wifi_mqttConnect": "MQTT连接 [SERVER] [CLIENTID]"
   }
 }
