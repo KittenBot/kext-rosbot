@@ -120,8 +120,38 @@
         },
       },
     },
+    {
+      opcode: "rosbot_wifi_getNtpTime",
+      blockType: "reporter",
+      text: "$$rosbot_wifi_getNtpTime",
+      disableMonitor: 1,
+      arguments: {
+        TIMEZONE: {
+          type: "string",
+          defaultValue: "8",
+        },
+      },
+    },
+    {
+      opcode: "rosbot_wifi_whenMqttGetInfo",
+      blockType: "hat",
+      text: "$$rosbot_wifi_whenMqttGetInfo",
+      isEdgeActivated: false,
+      arguments: {
+        TOPIC: {
+          type: "string",
+          defaultValue: "/topic",
+        },
+      },
+    },
   ],
   menus: {
     bitPins: ["P0", "P1", "P2", "P8", "P12", "P13", "P14", "P15"],
+    TIMEZONE: [
+      { text: "Hour", value: "hh" },
+      { text: "Min", value: "mm" },
+      { text: "Sec", value: "ss" },
+      { text: "1970s", value: "None" },
+    ],
   },
 }
