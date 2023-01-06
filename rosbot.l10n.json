@@ -45,7 +45,8 @@
     "rosbot_wifi_connectAP": "WIFI Connect [AP] [PASSWORD]",
     "rosbot_wifi_getIPAddr":  "WIFI Get IP Address",
     "rosbot_wifi_mqttConnectLocalHost": "MQTT Connect [SERVER] [CLIENTID]",
-    "rosbot_wifi_mqttConnectRemoteHost": "MQTT Connect [SERVER] [CLIENTID] [USERNAME] [PASSWORD]"
+    "rosbot_wifi_mqttConnectRemoteHost": "MQTT Connect [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
+    "rosbot_wifi_mqttSubscribe": "MQTT Subscribe [TOPIC]"
   },
   "zh-cn": {
     "rosbot_arduinosetup": "Arduino 初始化",
@@ -93,6 +94,7 @@
     "rosbot_wifi_connectAP": "WIFI 连接 [AP] [PASSWORD]",
     "rosbot_wifi_getIPAddr": "获取IP地址",
     "rosbot_wifi_mqttConnectLocalHost": "MQTT连接 [SERVER] [CLIENTID]",
-    "rosbot_wifi_mqttConnectRemoteHost": "MQTT连接 [SERVER] [CLIENTID] [USERNAME] [PASSWORD]"
+    "rosbot_wifi_mqttConnectRemoteHost": "MQTT连接 [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
+    "rosbot_wifi_mqttSubscribe": "MQTT订阅话题 [TOPIC]"
   }
 }

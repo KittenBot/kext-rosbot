@@ -82,6 +82,17 @@
         },
       },
     },
+    {
+        opcode: "rosbot_wifi_mqttSubscribe",
+        blockType: "command",
+        text: "$$rosbot_wifi_mqttSubscribe",
+        arguments: {
+          TOPIC: {
+            type: "string",
+            defaultValue: "/topic",
+          },
+        },
+    }
   ],
   menus: {
     bitPins: ["P0", "P1", "P2", "P8", "P12", "P13", "P14", "P15"],
