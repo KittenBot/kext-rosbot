@@ -39,6 +39,12 @@
       },
     },
     {
+        opcode: "rosbot_wifi_getIPAddr",
+        blockType: "reporter",
+        text: "$$rosbot_wifi_getIPAddr",
+        disableMonitor: 1,
+    },
+    {
       opcode: "rosbot_wifi_mqttConnect",
       blockType: "command",
       text: "$$rosbot_wifi_mqttConnect",
