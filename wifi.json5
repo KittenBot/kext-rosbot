@@ -39,15 +39,15 @@
       },
     },
     {
-        opcode: "rosbot_wifi_getIPAddr",
-        blockType: "reporter",
-        text: "$$rosbot_wifi_getIPAddr",
-        disableMonitor: 1,
+      opcode: "rosbot_wifi_getIPAddr",
+      blockType: "reporter",
+      text: "$$rosbot_wifi_getIPAddr",
+      disableMonitor: 1,
     },
     {
-      opcode: "rosbot_wifi_mqttConnect",
+      opcode: "rosbot_wifi_mqttConnectLocalHost",
       blockType: "command",
-      text: "$$rosbot_wifi_mqttConnect",
+      text: "$$rosbot_wifi_mqttConnectLocalHost",
       arguments: {
         SERVER: {
           type: "string",
@@ -55,7 +55,30 @@
         },
         CLIENTID: {
           type: "string",
-          defaultValue: "robot01",
+          defaultValue: "id",
+        },
+      },
+    },
+    {
+      opcode: "rosbot_wifi_mqttConnectRemoteHost",
+      blockType: "command",
+      text: "$$rosbot_wifi_mqttConnectRemoteHost",
+      arguments: {
+        SERVER: {
+          type: "string",
+          defaultValue: "iot.kittenbot.cn",
+        },
+        CLIENTID: {
+          type: "string",
+          defaultValue: "id",
+        },
+        USERNAME: {
+          type: "string",
+          defaultValue: "",
+        },
+        PASSWORD: {
+          type: "string",
+          defaultValue: "",
         },
       },
     },
