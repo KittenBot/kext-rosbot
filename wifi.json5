@@ -7,6 +7,23 @@
   blocks: [
     "## $$rosbot_title_wifi",
     {
+      opcode: "rosbot_wifi_iotInit",
+      blockType: "command",
+      text: "$$rosbot_wifi_iotInit",
+      arguments: {
+        TX: {
+          type: "string",
+          defaultValue: "P1",
+          menu: "bitPins",
+        },
+        RX: {
+          type: "string",
+          defaultValue: "P2",
+          menu: "bitPins",
+        },
+      },
+    },
+    {
       opcode: "rosbot_wifi_mqttConnect",
       blockType: "command",
       text: "$$rosbot_wifi_mqttConnect",
@@ -22,4 +39,7 @@
       },
     },
   ],
+  menus: {
+    bitPins: ["P0", "P1", "P2", "P8", "P12", "P13", "P14", "P15"],
+  },
 }
