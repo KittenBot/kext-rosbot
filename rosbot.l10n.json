@@ -47,7 +47,8 @@
     "rosbot_wifi_mqttConnectLocalHost": "MQTT Connect [SERVER] [CLIENTID]",
     "rosbot_wifi_mqttConnectRemoteHost": "MQTT Connect [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
     "rosbot_wifi_mqttSubscribe": "MQTT Subscribe [TOPIC]",
-    "rosbot_wifi_mqttPublish": "MQTT Publish [TOPIC] [MESSAGE]"
+    "rosbot_wifi_mqttPublish": "MQTT Publish [TOPIC] [MESSAGE]",
+    "rosbot_wifi_getMqttTopicMsg": "MQTT Get [TOPIC] Message"
   },
   "zh-cn": {
     "rosbot_arduinosetup": "Arduino 初始化",
@@ -97,6 +98,7 @@
     "rosbot_wifi_mqttConnectLocalHost": "MQTT连接 [SERVER] [CLIENTID]",
     "rosbot_wifi_mqttConnectRemoteHost": "MQTT连接 [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
     "rosbot_wifi_mqttSubscribe": "MQTT订阅话题 [TOPIC]",
-    "rosbot_wifi_mqttPublish": "MQTT发布话题 [TOPIC] [MESSAGE]"
+    "rosbot_wifi_mqttPublish": "MQTT发布话题 [TOPIC] [MESSAGE]",
+    "rosbot_wifi_getMqttTopicMsg": "MQTT获取 [TOPIC] 消息"
   }
 }
