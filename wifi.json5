@@ -24,6 +24,21 @@
       },
     },
     {
+      opcode: "rosbot_wifi_connectAP",
+      blockType: "command",
+      text: "$$rosbot_wifi_connectAP",
+      arguments: {
+        AP: {
+          type: "string",
+          defaultValue: "Kittenbot",
+        },
+        PASSWORD: {
+          type: "string",
+          defaultValue: "12345678",
+        },
+      },
+    },
+    {
       opcode: "rosbot_wifi_mqttConnect",
       blockType: "command",
       text: "$$rosbot_wifi_mqttConnect",
