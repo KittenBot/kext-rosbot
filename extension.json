@@ -34,7 +34,8 @@
             "KittenBot.zip",
             "kittenbotEE.zip",
             "KittenbotIoT.zip",
-            "VarSpeedServo.zip"
+            "VarSpeedServo.zip",
+			"PS2X_lib.zip"
         ],
         "objects": {
             "kb": {
@@ -44,6 +45,9 @@
             }
         }
     },
+    "subextensions": [
+        "wifi.json5"
+    ],
     "kittenext": true,
     "target": "uno",
     "helpLink": "https://www.yuque.com/kittenbot/hardwares/rosbot-kittenblock",
