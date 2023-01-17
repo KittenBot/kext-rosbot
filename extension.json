@@ -34,7 +34,8 @@
             "KittenBot.zip",
             "kittenbotEE.zip",
             "KittenbotIoT.zip",
-            "VarSpeedServo.zip"
+            "VarSpeedServo.zip",
+			"PS2X_lib.zip"
         ],
         "objects": {
             "kb": {
