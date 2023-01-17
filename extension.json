@@ -45,6 +45,9 @@
             }
         }
     },
+    "subextensions": [
+        "wifi.json5"
+    ],
     "kittenext": true,
     "target": "uno",
     "helpLink": "https://www.yuque.com/kittenbot/hardwares/rosbot-kittenblock",

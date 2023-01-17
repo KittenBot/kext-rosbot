@@ -38,7 +38,19 @@
     "rosbot_ledmatrixrect": "LED Matrix Rect x[X] y[Y] w[W] h[H] on/off[C]",
     "rosbot_mp3play": "MP3 Play [IO1] [IO2]",
     "rosbot_mp3loop": "MP3 [DIR]",
-    "rosbot_mp3volumn": "MP3 Volumn [VOLUMN]"
+    "rosbot_mp3volumn": "MP3 Volumn [VOLUMN]",
+
+    "rosbot_title_wifi": "WiFi",
+    "rosbot_wifi_iotInit": "WIFI Init TX[TX] RX[RX]",
+    "rosbot_wifi_connectAP": "WIFI Connect [AP] [PASSWORD]",
+    "rosbot_wifi_getIPAddr":  "WIFI Get IP Address",
+    "rosbot_wifi_mqttConnectLocalHost": "MQTT Connect [SERVER] [CLIENTID]",
+    "rosbot_wifi_mqttConnectRemoteHost": "MQTT Connect [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
+    "rosbot_wifi_mqttSubscribe": "MQTT Subscribe [TOPIC]",
+    "rosbot_wifi_mqttPublish": "MQTT Publish [TOPIC] [MESSAGE]",
+    "rosbot_wifi_getMqttTopicMsg": "MQTT Get [TOPIC] Message",
+    "rosbot_wifi_getNtpTime": "NTP Time",
+    "rosbot_wifi_whenMqttGetInfo": "When MQTT Get [TOPIC] Message"
   },
   "zh-cn": {
     "rosbot_arduinosetup": "Arduino 初始化",
@@ -79,6 +91,18 @@
     "rosbot_ledmatrixrect": "LED矩阵 x[X] y[Y] 宽[W] 高[H] 亮度[C]",
     "rosbot_mp3play": "MP3播放 [IO1] [IO2]",
     "rosbot_mp3loop": "MP3 [DIR]",
-    "rosbot_mp3volumn": "MP3音量 [VOLUMN]"
+    "rosbot_mp3volumn": "MP3音量 [VOLUMN]",
+
+    "rosbot_title_wifi": "WiFi",
+    "rosbot_wifi_iotInit": "WIFI 模块初始化 TX[TX] RX[RX]",
+    "rosbot_wifi_connectAP": "WIFI 连接 [AP] [PASSWORD]",
+    "rosbot_wifi_getIPAddr": "获取IP地址",
+    "rosbot_wifi_mqttConnectLocalHost": "MQTT连接 [SERVER] [CLIENTID]",
+    "rosbot_wifi_mqttConnectRemoteHost": "MQTT连接 [SERVER] [CLIENTID] [USERNAME] [PASSWORD]",
+    "rosbot_wifi_mqttSubscribe": "MQTT订阅话题 [TOPIC]",
+    "rosbot_wifi_mqttPublish": "MQTT发布话题 [TOPIC] [MESSAGE]",
+    "rosbot_wifi_getMqttTopicMsg": "MQTT获取 [TOPIC] 消息",
+    "rosbot_wifi_getNtpTime": "获取NTP时间",
+    "rosbot_wifi_whenMqttGetInfo": "当MQTT收到 [TOPIC] 消息"
   }
 }
