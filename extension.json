@@ -48,6 +48,12 @@
     "subextensions": [
         "wifi.json5"
     ],
+	"errorhelper": {
+		"arduino_core": {
+			"msg": "missing avr core",
+			"event": ["Install Avr Core", "arduino-install-pkg", "arduino:avr"]
+		}
+	},
     "kittenext": true,
     "target": "uno",
     "helpLink": "https://www.yuque.com/kittenbot/hardwares/rosbot-kittenblock",
