@@ -11,7 +11,7 @@
     "color1": "#DE5277",
     "color2": "#AA3F5B",
     "color3": "#AA3F5B",
-    "version": "2.2.6",
+    "version": "2.2.7",
     "io": [
         "serial"
     ],
