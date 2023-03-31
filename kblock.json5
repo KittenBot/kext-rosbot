@@ -5,19 +5,157 @@
   blocks: [
     {
       opcode: "arduinostart",
+      blockType: "hat",
       blockType: "conditional",
       branchCount: 2,
       isTerminal: true,
       message2: "loop",
       text: ["$$rosbot_arduinosetup", "$$rosbot_arduinoloop"],
       mode: ["arduino"],
-      hatType: true,
+      // hatType: true,
       cpp: ["void setup()", "void loop()"],
     },
+
+    "## $$rosbot_title_io",
+    // ----------------------------------------------
+    {
+      opcode: "pinmode",
+      blockType: "command",
+
+      text: "$$rosbot_pinmode",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
+        },
+        MODE: {
+          type: "string",
+          menu: "pinMode",
+          defaultValue: "0",
+        },
+      },
+      cmd: "M1 [PIN] [MODE]",
+      arduino: {
+        cpp: "pinMode([PIN],[MODE])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "digitalwrite",
+      blockType: "command",
+
+      text: "$$rosbot_digitalwrite",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
+        },
+        VALUE: {
+          type: "number",
+          menu: "level",
+          defaultValue: "1",
+        },
+      },
+      cmd: "M2 [PIN] [VALUE]",
+      arduino: {
+        cpp: "digitalWrite([PIN],[VALUE])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "analogwrite",
+      blockType: "command",
+      text: "$$rosbot_analogwrite",
+      arguments: {
+        PIN: {
+          type: "string",
+          menu: "analogWritePin",
+          defaultValue: "11",
+        },
+        VALUE: {
+          type: "slider",
+          defaultValue: 120,
+          min: 0,
+          max: 255,
+        },
+      },
+      cmd: "M4 [PIN] [VALUE]",
+      arduino: {
+        cpp: "analogWrite([PIN],[VALUE])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "digitalread",
+      blockType: "Boolean",
+      text: "$$rosbot_digitalread",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "3",
+          menu: "rosbotPin",
+        },
+      },
+      cmd: "M3 [PIN]",
+      arduino: {
+        cpp: "digitalRead([PIN])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "analogread",
+      blockType: "reporter",
+
+      text: "$$rosbot_analogread",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "A0",
+          menu: "analogPin",
+        },
+      },
+      cmd: "M5 [PIN]",
+      arduino: {
+        cpp: "analogRead([PIN])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "led",
+      blockType: "command",
+      text: "$$rosbot_led",
+      arguments: {
+        PIN: {
+          type: "string",
+          defaultValue: "13",
+          menu: "rosbotPin",
+        },
+        VALUE: {
+          type: "string",
+          menu: "ledonoff",
+          defaultValue: "0",
+        },
+      },
+      cmd: "M2 [PIN] [VALUE]",
+      arduino: {
+        cpp: "digitalWrite([PIN],[VALUE])",
+        object: "kb",
+      },
+      sepafter: 36,
+    },
+
+    "## $$rosbot_title_actuator",
+    // ----------------------------------------------
     {
       opcode: "motorspeed",
       blockType: "command",
-
       text: "$$rosbot_motorspeed",
       arguments: {
         MOTOR: {
@@ -38,10 +176,10 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "motordual",
       blockType: "command",
-
       text: "$$rosbot_motordual",
       arguments: {
         SPDM1A: {
@@ -63,6 +201,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "motordualdelay",
       blockType: "command",
@@ -92,6 +231,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "motorfour",
       blockType: "command",
@@ -129,37 +269,7 @@
         object: "kb",
       },
     },
-    {
-      opcode: "omniwheel",
-      blockType: "command",
-
-      text: "$$rosbot_omniwheel",
-      arguments: {
-        SPDX: {
-          type: "slider",
-          defaultValue: 100,
-          min: -255,
-          max: 255,
-        },
-        SPDY: {
-          type: "slider",
-          defaultValue: 100,
-          min: -255,
-          max: 255,
-        },
-        SPDR: {
-          type: "slider",
-          defaultValue: 0,
-          min: 0,
-          max: 255,
-        },
-      },
-      cmd: "M209 [SPDX] [SPDY] [SPDR]",
-      arduino: {
-        cpp: "kb.omniWheel([SPDX],[SPDY],[SPDR])",
-        object: "kb",
-      },
-    },
+    // ----------------------------------------------
     {
       opcode: "stop",
       blockType: "command",
@@ -171,10 +281,10 @@
       },
       sepafter: 36,
     },
+    // ----------------------------------------------
     {
       opcode: "stepperline",
       blockType: "command",
-
       text: "$$rosbot_stepperline",
       arguments: {
         DISTANCE: {
@@ -188,6 +298,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "stepperturn",
       blockType: "command",
@@ -205,6 +316,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "stepperppm",
       blockType: "command",
@@ -222,6 +334,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "stepperwheelbase",
       blockType: "command",
@@ -239,6 +352,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "stepperarc",
       blockType: "command",
@@ -261,6 +375,8 @@
       },
       sepafter: 36,
     },
+    // ----------------------------------------------
+
     /*
     {
         opcode: 'steppermove',
@@ -286,155 +402,30 @@
         sepafter: 36
     },
     */
-    {
-      opcode: "pinmode",
-      blockType: "command",
 
-      text: "$$rosbot_pinmode",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "13",
-          menu: "rosbotPin",
-        },
-        MODE: {
-          type: "string",
-          menu: "pinMode",
-          defaultValue: "0",
-        },
-      },
-      cmd: "M1 [PIN] [MODE]",
-      arduino: {
-        cpp: "pinMode([PIN],[MODE])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "digitalwrite",
-      blockType: "command",
+    // {
+    //   opcode: "button",
+    //   blockType: "Boolean",
 
-      text: "$$rosbot_digitalwrite",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "13",
-          menu: "rosbotPin",
-        },
-        VALUE: {
-          type: "number",
-          menu: "level",
-          defaultValue: "1",
-        },
-      },
-      cmd: "M2 [PIN] [VALUE]",
-      arduino: {
-        cpp: "digitalWrite([PIN],[VALUE])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "analogwrite",
-      blockType: "command",
-      text: "$$rosbot_analogwrite",
-      arguments: {
-        PIN: {
-          type: "string",
-          menu: "analogWritePin",
-          defaultValue: "11",
-        },
-        VALUE: {
-          type: "slider",
-          defaultValue: 120,
-          min: 0,
-          max: 255,
-        },
-      },
-      cmd: "M4 [PIN] [VALUE]",
-      arduino: {
-        cpp: "analogWrite([PIN],[VALUE])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "digitalread",
-      blockType: "Boolean",
-      text: "$$rosbot_digitalread",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "3",
-          menu: "rosbotPin",
-        },
-      },
-      cmd: "M3 [PIN]",
-      arduino: {
-        cpp: "digitalRead([PIN])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "analogread",
-      blockType: "reporter",
+    //   text: "$$rosbot_button",
+    //   arguments: {
+    //     PIN: {
+    //       type: "string",
+    //       defaultValue: "4",
+    //       menu: "extPin",
+    //     },
+    //   },
+    //   cmd: "M10 [PIN]",
+    //   arduino: {
+    //     cpp: "(!digitalRead([PIN]))",
+    //     object: "kb",
+    //   },
+    // },
 
-      text: "$$rosbot_analogread",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "A0",
-          menu: "analogPin",
-        },
-      },
-      cmd: "M5 [PIN]",
-      arduino: {
-        cpp: "analogRead([PIN])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "led",
-      blockType: "command",
-      text: "$$rosbot_led",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "13",
-          menu: "rosbotPin",
-        },
-        VALUE: {
-          type: "string",
-          menu: "ledonoff",
-          defaultValue: "0",
-        },
-      },
-      cmd: "M2 [PIN] [VALUE]",
-      arduino: {
-        cpp: "digitalWrite([PIN],[VALUE])",
-        object: "kb",
-      },
-      sepafter: 36,
-    },
-    {
-      opcode: "button",
-      blockType: "Boolean",
-
-      text: "$$rosbot_button",
-      arguments: {
-        PIN: {
-          type: "string",
-          defaultValue: "4",
-          menu: "extPin",
-        },
-      },
-      cmd: "M10 [PIN]",
-      arduino: {
-        cpp: "(!digitalRead([PIN]))",
-        object: "kb",
-      },
-    },
+    // ----------------------------------------------
     {
       opcode: "servo",
       blockType: "command",
-
       text: "$$rosbot_servo",
       arguments: {
         PIN: {
@@ -461,6 +452,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "geekservo",
       blockType: "command",
@@ -487,7 +479,11 @@
         cpp: "kb.geekServoArray([PIN],[DEGREE],[SPEED])",
         object: "kb",
       },
+      sepafter: 36,
     },
+
+    "## $$rosbot_title_modules",    
+    // ----------------------------------------------
     {
       opcode: "tone",
       blockType: "command",
@@ -512,7 +508,9 @@
         cpp: "kb.buzzTone([PIN],[FREQ],[DURATION])",
         object: "kb",
       },
+      sepafter: 36
     },
+    // ----------------------------------------------
     {
       opcode: "rgbbrightness",
       blockType: "command",
@@ -532,10 +530,10 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "rgbpick",
       blockType: "command",
-
       text: "$$rosbot_rgbpick",
       arguments: {
         PIN: {
@@ -558,6 +556,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "rgb",
       blockType: "command",
@@ -598,10 +597,10 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "rgboff",
       blockType: "command",
-
       text: "$$rosbot_rgboff",
       arguments: {
         PIN: {
@@ -616,10 +615,10 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "distance",
       blockType: "reporter",
-
       text: "$$rosbot_distance",
       arguments: {
         PIN: {
@@ -630,22 +629,12 @@
       },
       cmd: "M250 [PIN] 99",
       arduino: {
-        cpp: "(kb.ultrasonic([PIN]))",
+        cpp: "kb.ultrasonic([PIN])",
         object: "kb",
       },
+      sepafter: 36
     },
-    {
-      opcode: "power",
-      blockType: "reporter",
-
-      text: "$$rosbot_power",
-      cmd: "M8",
-      sepafter: 36,
-      arduino: {
-        cpp: "(kb.getBatteryVoltage())",
-        object: "kb",
-      },
-    },
+    // ----------------------------------------------
     {
       opcode: "ps2init",
       blockType: "command",
@@ -657,6 +646,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "ps2axis",
       blockType: "reporter",
@@ -675,6 +665,7 @@
         object: "kb",
       },
     },
+    // ----------------------------------------------
     {
       opcode: "ps2button",
       blockType: "reporter",
@@ -689,146 +680,197 @@
       },
       cmd: "M222 [BUTTON]",
       arduino: {
-        cpp: "(kb.ps2ReadButton([BUTTON]))",
+        cpp: "kb.ps2ReadButton([BUTTON])",
+        object: "kb",
+      },
+    },
+    // ----------------------------------------------
+    {
+      opcode: "omniwheel",
+      blockType: "command",
+
+      text: "$$rosbot_omniwheel",
+      arguments: {
+        SPDX: {
+          type: "slider",
+          defaultValue: 100,
+          min: -255,
+          max: 255,
+        },
+        SPDY: {
+          type: "slider",
+          defaultValue: 100,
+          min: -255,
+          max: 255,
+        },
+        SPDR: {
+          type: "slider",
+          defaultValue: 0,
+          min: 0,
+          max: 255,
+        },
+      },
+      cmd: "M209 [SPDX] [SPDY] [SPDR]",
+      arduino: {
+        cpp: "kb.omniWheel([SPDX],[SPDY],[SPDR])",
         object: "kb",
       },
       sepafter: 36,
     },
-    {
-      opcode: "ledstring",
-      blockType: "command",
 
-      text: "$$rosbot_ledstring",
-      arguments: {
-        STR: {
-          type: "string",
-          defaultValue: "hello world",
-        },
-      },
-      cmd: "M20 [STR]",
+    // ----------------------------------------------
+    {
+      opcode: "power",
+      blockType: "reporter",
+      text: "$$rosbot_power",
+      cmd: "M8",
       arduino: {
-        cpp: "kb.matrixShowString([STR])",
+        cpp: "kb.getBatteryVoltage()",
         object: "kb",
       },
     },
-    {
-      opcode: "ledmatrix",
-      blockType: "command",
+    // ----------------------------------------------
+    // {
+    //   opcode: "ledstring",
+    //   blockType: "command",
 
-      text: "$$rosbot_ledmatrix",
-      arguments: {
-        MAT: {
-          type: "ledmatrix",
-          defaultValue: "00000000024000000000042003c00000",
-        },
-      },
-      cmd: "M21 [MAT]",
-      arduino: {
-        cpp: "kb.matrixShow([MAT])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "ledmatrixclear",
-      blockType: "command",
+    //   text: "$$rosbot_ledstring",
+    //   arguments: {
+    //     STR: {
+    //       type: "string",
+    //       defaultValue: "hello world",
+    //     },
+    //   },
+    //   cmd: "M20 [STR]",
+    //   arduino: {
+    //     cpp: "kb.matrixShowString([STR])",
+    //     object: "kb",
+    //   },
+    // },
+    // ----------------------------------------------
+    // {
+    //   opcode: "ledmatrix",
+    //   blockType: "command",
 
-      text: "$$rosbot_ledmatrixclear",
-      cmd: "M21 00000000000000000000000000000000",
-      arduino: {
-        cpp: 'kb.matrixShow("00000000000000000000000000000000")',
-        object: "kb",
-      },
-    },
-    {
-      opcode: "ledmatrixrect",
-      blockType: "command",
+    //   text: "$$rosbot_ledmatrix",
+    //   arguments: {
+    //     MAT: {
+    //       type: "ledmatrix",
+    //       defaultValue: "00000000024000000000042003c00000",
+    //     },
+    //   },
+    //   cmd: "M21 [MAT]",
+    //   arduino: {
+    //     cpp: "kb.matrixShow([MAT])",
+    //     object: "kb",
+    //   },
+    // },
+    // // ----------------------------------------------
+    // {
+    //   opcode: "ledmatrixclear",
+    //   blockType: "command",
 
-      text: "$$rosbot_ledmatrixrect",
-      arguments: {
-        X: {
-          type: "number",
-          defaultValue: 2,
-        },
-        Y: {
-          type: "number",
-          defaultValue: 2,
-        },
-        W: {
-          type: "number",
-          defaultValue: 3,
-        },
-        H: {
-          type: "number",
-          defaultValue: 3,
-        },
-        C: {
-          type: "number",
-          defaultValue: 1,
-        },
-      },
-      cmd: "M22 [X] [Y] [W] [H] [C]",
-      arduino: {
-        cpp: "kb.matrixFillRect([X],[Y],[W],[H],[C])",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "mp3play",
-      blockType: "command",
+    //   text: "$$rosbot_ledmatrixclear",
+    //   cmd: "M21 00000000000000000000000000000000",
+    //   arduino: {
+    //     cpp: 'kb.matrixShow("00000000000000000000000000000000")',
+    //     object: "kb",
+    //   },
+    // },
+    // // ----------------------------------------------
+    // {
+    //   opcode: "ledmatrixrect",
+    //   blockType: "command",
 
-      text: "$$rosbot_mp3play",
-      arguments: {
-        IO1: {
-          type: "string",
-          defaultValue: "4",
-          menu: "rosbotPin",
-        },
-        IO2: {
-          type: "string",
-          defaultValue: "7",
-          menu: "rosbotPin",
-        },
-      },
-      cmd: "M31 [IO1] [IO2] 100",
-      arduino: {
-        cpp: "kb.extIoSet([IO1],[IO2], 100)",
-        object: "kb",
-      },
-    },
-    {
-      opcode: "mp3loop",
-      blockType: "command",
-      text: "$$rosbot_mp3loop",
-      arguments: {
-        DIR: {
-          type: "number",
-          defaultValue: "0, 1",
-          menu: "mp3direction",
-        },
-      },
-      cmd: "M30 [DIR] 100",
-      arduino: {
-        cpp: "kb.extIo([DIR], 100)", // TODO
-        object: "kb",
-      },
-    },
-    {
-      opcode: "mp3volumn",
-      blockType: "command",
-      text: "$$rosbot_mp3volumn",
-      arguments: {
-        VOLUMN: {
-          type: "number",
-          defaultValue: "0, 1",
-          menu: "volumnList",
-        },
-      },
-      cmd: "M30 [VOLUMN] 500",
-      arduino: {
-        cpp: "kb.extIo([VOLUMN], 500)", // TODO
-        object: "kb",
-      },
-    },
+    //   text: "$$rosbot_ledmatrixrect",
+    //   arguments: {
+    //     X: {
+    //       type: "number",
+    //       defaultValue: 2,
+    //     },
+    //     Y: {
+    //       type: "number",
+    //       defaultValue: 2,
+    //     },
+    //     W: {
+    //       type: "number",
+    //       defaultValue: 3,
+    //     },
+    //     H: {
+    //       type: "number",
+    //       defaultValue: 3,
+    //     },
+    //     C: {
+    //       type: "number",
+    //       defaultValue: 1,
+    //     },
+    //   },
+    //   cmd: "M22 [X] [Y] [W] [H] [C]",
+    //   arduino: {
+    //     cpp: "kb.matrixFillRect([X],[Y],[W],[H],[C])",
+    //     object: "kb",
+    //   },
+    // },
+    // // ----------------------------------------------
+    // {
+    //   opcode: "mp3play",
+    //   blockType: "command",
+
+    //   text: "$$rosbot_mp3play",
+    //   arguments: {
+    //     IO1: {
+    //       type: "string",
+    //       defaultValue: "4",
+    //       menu: "rosbotPin",
+    //     },
+    //     IO2: {
+    //       type: "string",
+    //       defaultValue: "7",
+    //       menu: "rosbotPin",
+    //     },
+    //   },
+    //   cmd: "M31 [IO1] [IO2] 100",
+    //   arduino: {
+    //     cpp: "kb.extIoSet([IO1],[IO2], 100)",
+    //     object: "kb",
+    //   },
+    // },
+    // // ----------------------------------------------
+    // {
+    //   opcode: "mp3loop",
+    //   blockType: "command",
+    //   text: "$$rosbot_mp3loop",
+    //   arguments: {
+    //     DIR: {
+    //       type: "number",
+    //       defaultValue: "0, 1",
+    //       menu: "mp3direction",
+    //     },
+    //   },
+    //   cmd: "M30 [DIR] 100",
+    //   arduino: {
+    //     cpp: "kb.extIo([DIR], 100)", // TODO
+    //     object: "kb",
+    //   },
+    // },
+    // // ----------------------------------------------
+    // {
+    //   opcode: "mp3volumn",
+    //   blockType: "command",
+    //   text: "$$rosbot_mp3volumn",
+    //   arguments: {
+    //     VOLUMN: {
+    //       type: "number",
+    //       defaultValue: "0, 1",
+    //       menu: "volumnList",
+    //     },
+    //   },
+    //   cmd: "M30 [VOLUMN] 500",
+    //   arduino: {
+    //     cpp: "kb.extIo([VOLUMN], 500)", // TODO
+    //     object: "kb",
+    //   },
+    // },
   ],
   menus: {
     pinMode: [

@@ -11,7 +11,7 @@
     "color1": "#DE5277",
     "color2": "#AA3F5B",
     "color3": "#AA3F5B",
-    "version": "2.2.7",
+    "version": "2.2.8",
     "io": [
         "serial"
     ],
@@ -46,7 +46,6 @@
         }
     },
     "subextensions": [
-        "wifi.json5"
     ],
 	"errorhelper": {
 		"arduino_core": {
