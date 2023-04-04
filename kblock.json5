@@ -12,7 +12,7 @@
       message2: "loop",
       text: ["$$rosbot_arduinosetup", "$$rosbot_arduinoloop"],
       mode: ["arduino"],
-      // hatType: true,
+      hatType: true,
       cpp: ["void setup()", "void loop()"],
     },
 
