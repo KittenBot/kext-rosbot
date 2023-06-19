@@ -28,6 +28,10 @@
         "core": "arduino:avr",
         "board": "uno",
         "libs": [
+            "TimerFreeTone.zip",
+            "Adafruit_GFX.zip",
+            "Adafruit_LED_Backpack.zip",
+            "Adafruit_NeoPixel.zip",
             "AccelStepper.zip",
             "DHT11.zip",
             "FlexiTimer2.zip",
