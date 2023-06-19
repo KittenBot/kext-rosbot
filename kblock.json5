@@ -330,7 +330,7 @@
       },
       cmd: "M104 [PPM]",
       arduino: {
-        cpp: "kb.ppm([PPM])",
+        cpp: "kb.ppm = [PPM]",
         object: "kb",
       },
     },
@@ -348,7 +348,7 @@
       },
       cmd: "M105 [WHEELBASE]",
       arduino: {
-        cpp: "kb.baseWidth([WHEELBASE])",
+        cpp: "kb.baseWidth = [WHEELBASE]",
         object: "kb",
       },
     },
@@ -661,7 +661,7 @@
       },
       cmd: "M221 [AXIS]",
       arduino: {
-        cpp: "(kb.ps2Axis([AXIS]))",
+        cpp: "(kb.ps2ReadAxis([AXIS]))",
         object: "kb",
       },
     },
