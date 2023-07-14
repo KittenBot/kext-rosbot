@@ -39,24 +39,43 @@
             "kittenbotEE.zip",
             "KittenbotIoT.zip",
             "VarSpeedServo.zip",
-			"PS2X_lib.zip"
+            "PS2X_lib.zip"
         ],
         "objects": {
             "kb": {
                 "import": "#include \"KittenBot.h\"",
                 "object": "KittenBot kb;",
                 "setup": "kb.init()"
+            },
+            "ds18b20": {
+                "import": "#include <OneWire.h>",
+                "object": "OneWire oneWire(2);",
+                "setup": "sensors_2.getAddress(insideThermometer, 0);"
+            },
+            "softPWM": {
+                "import": "#include <SoftPWM.h>",
+                "setup": "SoftPWMBegin();"
+            },
+            "simpleTimer": {
+                "import": "#include <SimpleTimer.h>",
+                "object": "SimpleTimer timer;",
+                "setup": "timer.setInterval(1000L, Simple_timer_1);"
             }
         }
     },
     "subextensions": [
+        "sugar.json5"
     ],
-	"errorhelper": {
-		"arduino_core": {
-			"msg": "missing avr core",
-			"event": ["Install Avr Core", "arduino-install-pkg", "arduino:avr"]
-		}
-	},
+    "errorhelper": {
+        "arduino_core": {
+            "msg": "missing avr core",
+            "event": [
+                "Install Avr Core",
+                "arduino-install-pkg",
+                "arduino:avr"
+            ]
+        }
+    },
     "kittenext": true,
     "target": "uno",
     "helpLink": "https://www.yuque.com/kittenbot/hardwares/rosbot-kittenblock",

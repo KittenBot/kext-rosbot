@@ -1,0 +1,388 @@
+{
+  id: 'rosbot_sugar',
+  name: '$$sugar',
+  color1: '#30caf9',
+  color2: '#1cb1e5',
+  color3: '#2daae0',
+
+  libs: {
+    ds18b20: {
+      import: 'include <OneWire.h>',
+      instance: 'sensors_2.getAddress(insideThermometer, 0);'
+    }
+  },
+
+  blocks: [
+    //********************************************//
+    '## $$sugar_title_digitalSensor',
+    //----------------------------------------------
+    {
+      opcode: 'getHumandetectStatus',
+      blockType: 'Boolean',
+      text: 'PIR传感器[PIN]检测有人(5米)',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+      arduino: {
+        cpp: 'digitalRead([PIN])==1',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getTrackStatus',
+      blockType: 'Boolean',
+      text: '巡线传感器[PIN]识别到[LINE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        },
+        LINE: {
+          type: 'string',
+          defaultValue: '黑色',
+          menu: 'lineColor'
+        }
+      },
+      arduino: {
+        cpp: 'digitalRead([PIN])==[LINE]',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getHallStatus',
+      blockType: 'Boolean',
+      text: '霍尔传感器[PIN]检测有磁铁',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+      arduino: {
+        cpp: 'digitalRead([PIN])==0',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getButtonStatus',
+      blockType: 'Boolean',
+      text: '按键模块[PIN]被按下',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+      arduino: {
+        cpp: 'digitalRead([PIN])==0',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getTempValue',
+      blockType: 'reporter',
+      text: '温度模块(DS18B20)[PIN]获取温度',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+
+      arduino: {
+        cpp: 'ds18b20.getTemp([PIN])',
+        object: 'ds18b20'
+      }
+    },
+
+    //********************************************//
+    '## $$sugar_title_analogSensor',
+    //----------------------------------------------
+    {
+      opcode: 'getFlameStatus',
+      blockType: 'Boolean',
+      text: '火焰传感器[PIN]检测到有火源(100厘米)',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])>100',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getFlameValue',
+      blockType: 'reporter',
+      text: '火焰传感器[PIN]数值',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A0',
+          menu: 'analogPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getRotationValue',
+      blockType: 'reporter',
+      text: '电位器模块[PIN]数值',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A0',
+          menu: 'analogPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getLightValue',
+      blockType: 'reporter',
+      text: '光敏传感器[PIN]数值',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A0',
+          menu: 'analogPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getMoistureValue',
+      blockType: 'reporter',
+      text: '土壤湿度传感器[PIN]数值',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A0',
+          menu: 'analogPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'getWaterLevelValue',
+      blockType: 'reporter',
+      text: '雨滴水位传感器[PIN]数值',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A0',
+          menu: 'analogPin'
+        }
+      },
+      arduino: {
+        cpp: 'analogRead([PIN])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    '## $$sugar_title_iicSensor',
+    '## $$sugar_title_actuator',
+    // ----------------------------------------------
+    {
+      opcode: 'laserState',
+      blockType: 'command',
+
+      text: '红点儿激光模块[PIN]激光发射[VALUE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: '13',
+          menu: 'rosbotPin'
+        },
+        VALUE: {
+          type: 'number',
+          menu: 'onoff',
+          defaultValue: '1'
+        }
+      },
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'buzzerAState',
+      blockType: 'command',
+
+      text: '有源蜂鸣器模块[PIN]鸣叫[VALUE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: '13',
+          menu: 'rosbotPin'
+        },
+        VALUE: {
+          type: 'number',
+          menu: 'onoff',
+          defaultValue: '1'
+        }
+      },
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'vibrateState',
+      blockType: 'command',
+
+      text: '振动模块[PIN]振动[VALUE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: '13',
+          menu: 'rosbotPin'
+        },
+        VALUE: {
+          type: 'number',
+          menu: 'onoff',
+          defaultValue: '1'
+        }
+      },
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'ledToggle',
+      blockType: 'command',
+      text: 'LED模块[PIN][VALUE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          menu: 'rosbotPin',
+          defaultValue: 'A3'
+        },
+        VALUE: {
+          type: 'string',
+          defaultValue: '1',
+          menu: 'ledonoff'
+        }
+      },
+      arduino: {
+        cpp: 'digitalWrite([PIN],[VALUE])',
+        object: 'kb'
+      }
+    },
+    // ----------------------------------------------
+    {
+      opcode: 'ledBrightness',
+      blockType: 'command',
+      text: 'LED模块[PIN] 亮度[VALUE]',
+      arguments: {
+        PIN: {
+          type: 'string',
+          menu: 'rosbotPin',
+          defaultValue: 'A3'
+        },
+        VALUE: {
+          type: 'slider',
+          defaultValue: 120,
+          min: 0,
+          max: 255
+        }
+      },
+      arduino: {
+        cpp: 'SoftPWMSet([PIN],[VALUE]);',
+        object: 'softPWM'
+      }
+    },
+    {
+      opcode: 'simpleTimer',
+      blockType: 'hat',
+      text: '简单定时器[PIN]间隔[TIME]毫秒',
+      arguments: {
+        PIN: {
+          type: 'string',
+          menu: 'analogWritePin',
+          defaultValue: '3'
+        },
+        TIME: {
+          type: 'string',
+          defaultValue: '1000'
+        }
+      },
+      arduino: {
+        cpp: 'timer.run();',
+        object: 'simpleTimer'
+      }
+    }
+  ],
+  menus: {
+    analogWritePin: ['3', '5', '6', '9', '10', '11'],
+    rosbotPin: [
+      { text: '2', value: '2' },
+      { text: '3', value: '3' },
+      { text: '4', value: '4' },
+      { text: '5', value: '5' },
+      { text: '6', value: '6' },
+      { text: '7', value: '7' },
+      { text: '8', value: '8' },
+      { text: '9', value: '9' },
+      { text: '10', value: '10' },
+      { text: '11', value: '11' },
+      { text: '12', value: '12' },
+      { text: '13', value: '13' },
+      { text: 'A0', value: 'A0' },
+      { text: 'A1', value: 'A1' },
+      { text: 'A2', value: 'A2' },
+      { text: 'A3', value: 'A3' },
+      { text: 'A4', value: 'A4' },
+      { text: 'A5', value: 'A5' }
+    ],
+    analogPin: ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'],
+    lineColor: [
+      { text: '黑色', value: '1' },
+      { text: '白色', value: '0' }
+    ],
+    ledonoff: [
+      { text: '点亮', value: '1' },
+      { text: '熄灭', value: '0' }
+    ],
+    onoff: [
+      { text: '打开', value: '1' },
+      { text: '关闭', value: '0' }
+    ]
+  }
+}
