@@ -39,7 +39,8 @@
             "kittenbotEE.zip",
             "KittenbotIoT.zip",
             "VarSpeedServo.zip",
-            "PS2X_lib.zip"
+            "PS2X_lib.zip",
+            "SoftPWM.zip"
         ],
         "objects": {
             "kb": {
