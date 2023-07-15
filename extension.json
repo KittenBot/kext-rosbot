@@ -48,11 +48,6 @@
                 "object": "KittenBot kb;",
                 "setup": "kb.init()"
             },
-            "ds18b20": {
-                "import": "#include <OneWire.h>",
-                "object": "OneWire oneWire(2);",
-                "setup": "sensors_2.getAddress(insideThermometer, 0);"
-            },
             "softPWM": {
                 "import": "#include <SoftPWM.h>",
                 "setup": "SoftPWMBegin();"
@@ -65,6 +60,7 @@
         }
     },
     "subextensions": [
+       "wifi.json5",
         "sugar.json5"
     ],
     "errorhelper": {

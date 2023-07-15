@@ -1,157 +1,157 @@
 {
-  id: "rosbot_wifi",
-  name: "WIFI",
-  color1: "#1395BA",
-  color2: "#107895",
-  color3: "#107895",
+  id: 'rosbot_wifi',
+  name: 'WIFI',
+  color1: '#1395BA',
+  color2: '#107895',
+  color3: '#107895',
   blocks: [
-    "## $$rosbot_title_wifi",
+    '## $$rosbot_title_wifi',
     {
-      opcode: "rosbot_wifi_iotInit",
-      blockType: "command",
-      text: "$$rosbot_wifi_iotInit",
+      opcode: 'rosbot_wifi_iotInit',
+      blockType: 'command',
+      text: '$$rosbot_wifi_iotInit',
       arguments: {
         TX: {
-          type: "string",
-          defaultValue: "P1",
-          menu: "bitPins",
+          type: 'string',
+          defaultValue: 'P1',
+          menu: 'bitPins'
         },
         RX: {
-          type: "string",
-          defaultValue: "P2",
-          menu: "bitPins",
-        },
-      },
+          type: 'string',
+          defaultValue: 'P2',
+          menu: 'bitPins'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_connectAP",
-      blockType: "command",
-      text: "$$rosbot_wifi_connectAP",
+      opcode: 'rosbot_wifi_connectAP',
+      blockType: 'command',
+      text: '$$rosbot_wifi_connectAP',
       arguments: {
         AP: {
-          type: "string",
-          defaultValue: "Kittenbot",
+          type: 'string',
+          defaultValue: 'Kittenbot'
         },
         PASSWORD: {
-          type: "string",
-          defaultValue: "12345678",
-        },
-      },
+          type: 'string',
+          defaultValue: '12345678'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_getIPAddr",
-      blockType: "reporter",
-      text: "$$rosbot_wifi_getIPAddr",
-      disableMonitor: 1,
+      opcode: 'rosbot_wifi_getIPAddr',
+      blockType: 'reporter',
+      text: '$$rosbot_wifi_getIPAddr',
+      disableMonitor: 1
     },
     {
-      opcode: "rosbot_wifi_mqttConnectLocalHost",
-      blockType: "command",
-      text: "$$rosbot_wifi_mqttConnectLocalHost",
+      opcode: 'rosbot_wifi_mqttConnectLocalHost',
+      blockType: 'command',
+      text: '$$rosbot_wifi_mqttConnectLocalHost',
       arguments: {
         SERVER: {
-          type: "string",
-          defaultValue: "iot.kittenbot.cn",
+          type: 'string',
+          defaultValue: 'iot.kittenbot.cn'
         },
         CLIENTID: {
-          type: "string",
-          defaultValue: "id",
-        },
-      },
+          type: 'string',
+          defaultValue: 'id'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_mqttConnectRemoteHost",
-      blockType: "command",
-      text: "$$rosbot_wifi_mqttConnectRemoteHost",
+      opcode: 'rosbot_wifi_mqttConnectRemoteHost',
+      blockType: 'command',
+      text: '$$rosbot_wifi_mqttConnectRemoteHost',
       arguments: {
         SERVER: {
-          type: "string",
-          defaultValue: "iot.kittenbot.cn",
+          type: 'string',
+          defaultValue: 'iot.kittenbot.cn'
         },
         CLIENTID: {
-          type: "string",
-          defaultValue: "id",
+          type: 'string',
+          defaultValue: 'id'
         },
         USERNAME: {
-          type: "string",
-          defaultValue: "",
+          type: 'string',
+          defaultValue: ''
         },
         PASSWORD: {
-          type: "string",
-          defaultValue: "",
-        },
-      },
+          type: 'string',
+          defaultValue: ''
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_mqttSubscribe",
-      blockType: "command",
-      text: "$$rosbot_wifi_mqttSubscribe",
+      opcode: 'rosbot_wifi_mqttSubscribe',
+      blockType: 'command',
+      text: '$$rosbot_wifi_mqttSubscribe',
       arguments: {
         TOPIC: {
-          type: "string",
-          defaultValue: "/topic",
-        },
-      },
+          type: 'string',
+          defaultValue: '/topic'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_mqttPublish",
-      blockType: "command",
-      text: "$$rosbot_wifi_mqttPublish",
+      opcode: 'rosbot_wifi_mqttPublish',
+      blockType: 'command',
+      text: '$$rosbot_wifi_mqttPublish',
       arguments: {
         TOPIC: {
-          type: "string",
-          defaultValue: "/topic",
+          type: 'string',
+          defaultValue: '/topic'
         },
         MESSAGE: {
-          type: "string",
-          defaultValue: "message",
-        },
-      },
+          type: 'string',
+          defaultValue: 'message'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_getMqttTopicMsg",
-      blockType: "reporter",
-      text: "$$rosbot_wifi_getMqttTopicMsg",
+      opcode: 'rosbot_wifi_getMqttTopicMsg',
+      blockType: 'reporter',
+      text: '$$rosbot_wifi_getMqttTopicMsg',
       disableMonitor: 1,
       arguments: {
         TOPIC: {
-          type: "string",
-          defaultValue: "/topic",
-        },
-      },
+          type: 'string',
+          defaultValue: '/topic'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_getNtpTime",
-      blockType: "reporter",
-      text: "$$rosbot_wifi_getNtpTime",
+      opcode: 'rosbot_wifi_getNtpTime',
+      blockType: 'reporter',
+      text: '$$rosbot_wifi_getNtpTime',
       disableMonitor: 1,
       arguments: {
         TIMEZONE: {
-          type: "string",
-          defaultValue: "8",
-        },
-      },
+          type: 'string',
+          defaultValue: '8'
+        }
+      }
     },
     {
-      opcode: "rosbot_wifi_whenMqttGetInfo",
-      blockType: "hat",
-      text: "$$rosbot_wifi_whenMqttGetInfo",
+      opcode: 'rosbot_wifi_whenMqttGetInfo',
+      blockType: 'hat',
+      text: '$$rosbot_wifi_whenMqttGetInfo',
       isEdgeActivated: false,
       arguments: {
         TOPIC: {
-          type: "string",
-          defaultValue: "/topic",
-        },
-      },
-    },
+          type: 'string',
+          defaultValue: '/topic'
+        }
+      }
+    }
   ],
   menus: {
-    bitPins: ["P0", "P1", "P2", "P8", "P12", "P13", "P14", "P15"],
+    bitPins: ['P0', 'P1', 'P2', 'P8', 'P12', 'P13', 'P14', 'P15'],
     TIMEZONE: [
-      { text: "Hour", value: "hh" },
-      { text: "Min", value: "mm" },
-      { text: "Sec", value: "ss" },
-      { text: "1970s", value: "None" },
-    ],
-  },
+      { text: 'Hour', value: 'hh' },
+      { text: 'Min', value: 'mm' },
+      { text: 'Sec', value: 'ss' },
+      { text: '1970s', value: 'None' }
+    ]
+  }
 }

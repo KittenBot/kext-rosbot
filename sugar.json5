@@ -6,9 +6,14 @@
   color3: '#2daae0',
 
   libs: {
-    ds18b20: {
-      import: 'include <OneWire.h>',
-      instance: 'sensors_2.getAddress(insideThermometer, 0);'
+    'ds18b20_[PIN]': {
+      import: ['OneWire.h', 'DallasTemperature.h'],
+      global: 'OneWire oneWire_[PIN]([PIN]);\nDallasTemperature sensors_[PIN](&oneWire_[PIN]);\nDeviceAddress insideThermometer;\nfloat ds18b20_[PIN]_getTemp(int w) {\n  sensors_[PIN].requestTemperatures();\n  if(w==0) {\n    return sensors_[PIN].getTempC(insideThermometer);\n  }\n  else {\n    return sensors_[PIN].getTempF(insideThermometer);\n  }\n}',
+      // setup: 'sensors_[PIN].getAddress(insideThermometer, 0);\n  sensors_[PIN].setResolution(insideThermometer, 9);'
+      setup: [
+        'sensors_[PIN].getAddress(insideThermometer, 0);',
+        'sensors_[PIN].setResolution(insideThermometer, 9);'
+      ]
     }
   },
 
@@ -27,10 +32,7 @@
           menu: 'rosbotPin'
         }
       },
-      arduino: {
-        cpp: 'digitalRead([PIN])==1',
-        object: 'kb'
-      }
+      arduino: 'digitalRead([PIN])==1'
     },
     //----------------------------------------------
     {
@@ -92,19 +94,20 @@
     {
       opcode: 'getTempValue',
       blockType: 'reporter',
-      text: '温度模块(DS18B20)[PIN]获取温度',
+      text: '温度模块(DS18B20)[PIN]获取温度[tempChoice]',
       arguments: {
         PIN: {
           type: 'string',
           defaultValue: 'A3',
           menu: 'rosbotPin'
+        },
+        tempChoice: {
+          type: 'string',
+          defaultValue: '0',
+          menu: 'tempChoice'
         }
       },
-
-      arduino: {
-        cpp: 'ds18b20.getTemp([PIN])',
-        object: 'ds18b20'
-      }
+      arduino: 'ds18b20_[PIN].getTemp([tempChoice]))'
     },
 
     //********************************************//
@@ -383,6 +386,10 @@
     onoff: [
       { text: '打开', value: '1' },
       { text: '关闭', value: '0' }
+    ],
+    tempChoice: [
+      { text: '℃', value: '0' },
+      { text: '℉', value: '1' }
     ]
   }
 }
