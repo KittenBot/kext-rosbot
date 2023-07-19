@@ -62,7 +62,6 @@
     }
   },
   "subextensions": [
-    "wifi.json5",
     "sugar.json5"
   ],
   "errorhelper": {
