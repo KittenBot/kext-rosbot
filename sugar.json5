@@ -8,11 +8,10 @@
   libs: {
     'ds18b20_[PIN]': {
       import: ['OneWire.h', 'DallasTemperature.h'],
-      global: 'OneWire oneWire_[PIN]([PIN]);\nDallasTemperature sensors_[PIN](&oneWire_[PIN]);\nDeviceAddress insideThermometer;\nfloat ds18b20_[PIN]_getTemp(int w) {\n  sensors_[PIN].requestTemperatures();\n  if(w==0) {\n    return sensors_[PIN].getTempC(insideThermometer);\n  }\n  else {\n    return sensors_[PIN].getTempF(insideThermometer);\n  }\n}',
-      // setup: 'sensors_[PIN].getAddress(insideThermometer, 0);\n  sensors_[PIN].setResolution(insideThermometer, 9);'
+      global: 'OneWire oneWire_[PIN]([PIN]);\nDallasTemperature ds18b20_[PIN](&oneWire_[PIN]);\nDeviceAddress ds18b20InsideThermometer;',
       setup: [
-        'sensors_[PIN].getAddress(insideThermometer, 0);',
-        'sensors_[PIN].setResolution(insideThermometer, 9);'
+        'ds18b20_[PIN].getAddress(ds18b20InsideThermometer, 0);',
+        'ds18b20_[PIN].setResolution(ds18b20InsideThermometer, 9);'
       ]
     }
   },
@@ -32,7 +31,10 @@
           menu: 'rosbotPin'
         }
       },
-      arduino: 'digitalRead([PIN])==1'
+      arduino: {
+        cpp: 'digitalRead([PIN])==1',
+        setup: 'pinMode(A2,0);'
+      }
     },
     //----------------------------------------------
     {
@@ -52,8 +54,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalRead([PIN])==[LINE]',
-        object: 'kb'
+        cpp: 'digitalRead([PIN])==[LINE]'
       }
     },
     //----------------------------------------------
@@ -69,8 +70,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalRead([PIN])==0',
-        object: 'kb'
+        cpp: 'digitalRead([PIN])==0'
       }
     },
     //----------------------------------------------
@@ -86,9 +86,22 @@
         }
       },
       arduino: {
-        cpp: 'digitalRead([PIN])==0',
-        object: 'kb'
+        cpp: 'digitalRead([PIN])==0'
       }
+    },
+    //----------------------------------------------
+    {
+      opcode: 'updateTempValue',
+      blockType: 'command',
+      text: '温度模块(DS18B20)[PIN]温度更新',
+      arguments: {
+        PIN: {
+          type: 'string',
+          defaultValue: 'A3',
+          menu: 'rosbotPin'
+        }
+      },
+      arduino: 'ds18b20_[PIN].requestTemperatures();'
     },
     //----------------------------------------------
     {
@@ -103,11 +116,11 @@
         },
         tempChoice: {
           type: 'string',
-          defaultValue: '0',
+          defaultValue: 'C',
           menu: 'tempChoice'
         }
       },
-      arduino: 'ds18b20_[PIN].getTemp([tempChoice]))'
+      arduino: 'ds18b20_[PIN].getTemp[tempChoice](ds18b20InsideThermometer)'
     },
 
     //********************************************//
@@ -125,8 +138,7 @@
         }
       },
       arduino: {
-        cpp: 'analogRead([PIN])>100',
-        object: 'kb'
+        cpp: 'analogRead([PIN])>100'
       }
     },
     //----------------------------------------------
@@ -236,7 +248,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
+        cpp: 'digitalWrite([PIN],[VALUE]);',
         object: 'kb'
       }
     },
@@ -259,7 +271,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
+        cpp: 'digitalWrite([PIN],[VALUE]);',
         object: 'kb'
       }
     },
@@ -282,7 +294,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
+        cpp: 'digitalWrite([PIN],[VALUE]);',
         object: 'kb'
       }
     },
@@ -304,7 +316,7 @@
         }
       },
       arduino: {
-        cpp: 'digitalWrite([PIN],[VALUE])',
+        cpp: 'digitalWrite([PIN],[VALUE]);',
         object: 'kb'
       }
     },
@@ -330,7 +342,8 @@
         cpp: 'SoftPWMSet([PIN],[VALUE]);',
         object: 'softPWM'
       }
-    },
+    }
+    /*
     {
       opcode: 'simpleTimer',
       blockType: 'hat',
@@ -350,7 +363,7 @@
         cpp: 'timer.run();',
         object: 'simpleTimer'
       }
-    }
+    }*/
   ],
   menus: {
     analogWritePin: ['3', '5', '6', '9', '10', '11'],
@@ -388,8 +401,8 @@
       { text: '关闭', value: '0' }
     ],
     tempChoice: [
-      { text: '℃', value: '0' },
-      { text: '℉', value: '1' }
+      { text: '℃', value: 'C' },
+      { text: '℉', value: 'F' }
     ]
   }
 }

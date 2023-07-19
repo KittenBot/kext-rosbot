@@ -37,7 +37,7 @@
       },
       cmd: "M1 [PIN] [MODE]",
       arduino: {
-        cpp: "pinMode([PIN],[MODE])",
+        cpp: "pinMode([PIN],[MODE]);",
         object: "kb",
       },
     },
@@ -61,7 +61,7 @@
       },
       cmd: "M2 [PIN] [VALUE]",
       arduino: {
-        cpp: "digitalWrite([PIN],[VALUE])",
+        cpp: "digitalWrite([PIN],[VALUE]);",
         object: "kb",
       },
     },
@@ -85,7 +85,7 @@
       },
       cmd: "M4 [PIN] [VALUE]",
       arduino: {
-        cpp: "analogWrite([PIN],[VALUE])",
+        cpp: "analogWrite([PIN],[VALUE]);",
         object: "kb",
       },
     },
@@ -103,7 +103,7 @@
       },
       cmd: "M3 [PIN]",
       arduino: {
-        cpp: "digitalRead([PIN])",
+        cpp: "digitalRead([PIN]);",
         object: "kb",
       },
     },
@@ -122,7 +122,7 @@
       },
       cmd: "M5 [PIN]",
       arduino: {
-        cpp: "analogRead([PIN])",
+        cpp: "analogRead([PIN]);",
         object: "kb",
       },
     },
@@ -145,7 +145,7 @@
       },
       cmd: "M2 [PIN] [VALUE]",
       arduino: {
-        cpp: "digitalWrite([PIN],[VALUE])",
+        cpp: "digitalWrite([PIN],[VALUE]);",
         object: "kb",
       },
       sepafter: 36,
@@ -172,7 +172,7 @@
       },
       cmd: "M200 [MOTOR] [SPEED]",
       arduino: {
-        cpp: "kb.motorSetSpeed([MOTOR],[SPEED])",
+        cpp: "kb.motorSetSpeed([MOTOR],[SPEED]);",
         object: "kb",
       },
     },
@@ -197,7 +197,7 @@
       },
       cmd: "M204 [SPDM1A] [SPDM1B] 0",
       arduino: {
-        cpp: "kb.motorRun2([SPDM1A],[SPDM1B])",
+        cpp: "kb.motorRun2([SPDM1A],[SPDM1B]);",
         object: "kb",
       },
     },
@@ -227,7 +227,7 @@
       },
       cmd: "M204 [SPDM1A] [SPDM1B] [DELAY]",
       arduino: {
-        cpp: "kb.motorRun2Delay([SPDM1A],[SPDM1B],[DELAY])",
+        cpp: "kb.motorRun2Delay([SPDM1A],[SPDM1B],[DELAY]);",
         object: "kb",
       },
     },
@@ -265,7 +265,7 @@
       },
       cmd: "M205 [SPDM1A] [SPDM1B] [SPDM2A] [SPDM2B]",
       arduino: {
-        cpp: "kb.motorRun4([SPDM1A],[SPDM1B],[SPDM2A],[SPDM2B])",
+        cpp: "kb.motorRun4([SPDM1A],[SPDM1B],[SPDM2A],[SPDM2B]);",
         object: "kb",
       },
     },
@@ -276,7 +276,7 @@
       text: "$$rosbot_stop",
       cmd: "M203",
       arduino: {
-        cpp: "kb.motorStop()",
+        cpp: "kb.motorStop();",
         object: "kb",
       },
       sepafter: 36,
@@ -294,7 +294,7 @@
       },
       cmd: "M101 [DISTANCE]",
       arduino: {
-        cpp: "kb.stepLine([DISTANCE])",
+        cpp: "kb.stepLine([DISTANCE]);",
         object: "kb",
       },
     },
@@ -312,7 +312,7 @@
       },
       cmd: "M102 [DEGREE]",
       arduino: {
-        cpp: "kb.stepTurn([DEGREE])",
+        cpp: "kb.stepTurn([DEGREE]);",
         object: "kb",
       },
     },
@@ -330,7 +330,7 @@
       },
       cmd: "M104 [PPM]",
       arduino: {
-        cpp: "kb.ppm = [PPM]",
+        cpp: "kb.ppm = [PPM];",
         object: "kb",
       },
     },
@@ -348,7 +348,7 @@
       },
       cmd: "M105 [WHEELBASE]",
       arduino: {
-        cpp: "kb.baseWidth = [WHEELBASE]",
+        cpp: "kb.baseWidth = [WHEELBASE];",
         object: "kb",
       },
     },
@@ -370,7 +370,7 @@
       },
       cmd: "M103 [RADIUS] [DEGREE]",
       arduino: {
-        cpp: "kb.stepArc([RADIUS],[DEGREE])",
+        cpp: "kb.stepArc([RADIUS],[DEGREE]);",
         object: "kb",
       },
       sepafter: 36,
@@ -417,7 +417,7 @@
     //   },
     //   cmd: "M10 [PIN]",
     //   arduino: {
-    //     cpp: "(!digitalRead([PIN]))",
+    //     cpp: "(!digitalRead([PIN]));",
     //     object: "kb",
     //   },
     // },
@@ -448,7 +448,7 @@
       },
       cmd: "M212 [PIN] [DEGREE] [SPEED]",
       arduino: {
-        cpp: "kb.servoArray([PIN],[DEGREE],[SPEED])",
+        cpp: "kb.servoArray([PIN],[DEGREE],[SPEED]);",
         object: "kb",
       },
     },
@@ -476,7 +476,7 @@
       },
       cmd: "M213 [PIN] [DEGREE] [SPEED]",
       arduino: {
-        cpp: "kb.geekServoArray([PIN],[DEGREE],[SPEED])",
+        cpp: "kb.geekServoArray([PIN],[DEGREE],[SPEED]);",
         object: "kb",
       },
       sepafter: 36,
@@ -505,7 +505,7 @@
       },
       cmd: "M6 [PIN] [FREQ] [DURATION]",
       arduino: {
-        cpp: "kb.buzzTone([PIN],[FREQ],[DURATION])",
+        cpp: "kb.buzzTone([PIN],[FREQ],[DURATION]);",
         object: "kb",
       },
       sepafter: 36
@@ -526,7 +526,7 @@
       },
       cmd: "M11 [VALUE]",
       arduino: {
-        cpp: "kb.rgbBrightness([VALUE])",
+        cpp: "kb.rgbBrightness([VALUE]);",
         object: "kb",
       },
     },
@@ -552,7 +552,7 @@
       },
       cmd: "M9 [PIN] [PIX] [COLOR]",
       arduino: {
-        cpp: "kb.rgbShow([PIN],[PIX],[COLOR])",
+        cpp: "kb.rgbShow([PIN],[PIX],[COLOR]);",
         object: "kb",
       },
     },
@@ -593,7 +593,7 @@
       },
       cmd: "M9 [PIN] [PIX] [RED] [GREEN] [BLUE]",
       arduino: {
-        cpp: "kb.rgbShow([PIN],[PIX],[RED],[GREEN],[BLUE])",
+        cpp: "kb.rgbShow([PIN],[PIX],[RED],[GREEN],[BLUE]);",
         object: "kb",
       },
     },
@@ -611,7 +611,7 @@
       },
       cmd: "M9 [PIN] 0 0 0 0",
       arduino: {
-        cpp: "kb.rgbShow([PIN],0,0,0,0)",
+        cpp: "kb.rgbShow([PIN],0,0,0,0);",
         object: "kb",
       },
     },
@@ -629,7 +629,7 @@
       },
       cmd: "M250 [PIN] 99",
       arduino: {
-        cpp: "kb.ultrasonic([PIN])",
+        cpp: "kb.ultrasonic([PIN]);",
         object: "kb",
       },
       sepafter: 36
@@ -642,7 +642,7 @@
       text: "$$rosbot_ps2init",
       cmd: "M220",
       arduino: {
-        cpp: "kb.ps2Init()",
+        cpp: "kb.ps2Init();",
         object: "kb",
       },
     },
@@ -661,7 +661,7 @@
       },
       cmd: "M221 [AXIS]",
       arduino: {
-        cpp: "(kb.ps2ReadAxis([AXIS]))",
+        cpp: "(kb.ps2ReadAxis([AXIS]));",
         object: "kb",
       },
     },
@@ -680,7 +680,7 @@
       },
       cmd: "M222 [BUTTON]",
       arduino: {
-        cpp: "kb.ps2ReadButton([BUTTON])",
+        cpp: "kb.ps2ReadButton([BUTTON]);",
         object: "kb",
       },
     },
@@ -712,7 +712,7 @@
       },
       cmd: "M209 [SPDX] [SPDY] [SPDR]",
       arduino: {
-        cpp: "kb.omniWheel([SPDX],[SPDY],[SPDR])",
+        cpp: "kb.omniWheel([SPDX],[SPDY],[SPDR]);",
         object: "kb",
       },
       sepafter: 36,
@@ -725,7 +725,7 @@
       text: "$$rosbot_power",
       cmd: "M8",
       arduino: {
-        cpp: "kb.getBatteryVoltage()",
+        cpp: "kb.getBatteryVoltage();",
         object: "kb",
       },
     },
@@ -743,7 +743,7 @@
     //   },
     //   cmd: "M20 [STR]",
     //   arduino: {
-    //     cpp: "kb.matrixShowString([STR])",
+    //     cpp: "kb.matrixShowString([STR]);",
     //     object: "kb",
     //   },
     // },
@@ -761,7 +761,7 @@
     //   },
     //   cmd: "M21 [MAT]",
     //   arduino: {
-    //     cpp: "kb.matrixShow([MAT])",
+    //     cpp: "kb.matrixShow([MAT]);",
     //     object: "kb",
     //   },
     // },
@@ -773,7 +773,7 @@
     //   text: "$$rosbot_ledmatrixclear",
     //   cmd: "M21 00000000000000000000000000000000",
     //   arduino: {
-    //     cpp: 'kb.matrixShow("00000000000000000000000000000000")',
+    //     cpp: 'kb.matrixShow("00000000000000000000000000000000");',
     //     object: "kb",
     //   },
     // },
@@ -807,7 +807,7 @@
     //   },
     //   cmd: "M22 [X] [Y] [W] [H] [C]",
     //   arduino: {
-    //     cpp: "kb.matrixFillRect([X],[Y],[W],[H],[C])",
+    //     cpp: "kb.matrixFillRect([X],[Y],[W],[H],[C]);",
     //     object: "kb",
     //   },
     // },
@@ -831,7 +831,7 @@
     //   },
     //   cmd: "M31 [IO1] [IO2] 100",
     //   arduino: {
-    //     cpp: "kb.extIoSet([IO1],[IO2], 100)",
+    //     cpp: "kb.extIoSet([IO1],[IO2], 100);",
     //     object: "kb",
     //   },
     // },
@@ -849,7 +849,7 @@
     //   },
     //   cmd: "M30 [DIR] 100",
     //   arduino: {
-    //     cpp: "kb.extIo([DIR], 100)", // TODO
+    //     cpp: "kb.extIo([DIR], 100);", // TODO
     //     object: "kb",
     //   },
     // },
@@ -867,7 +867,7 @@
     //   },
     //   cmd: "M30 [VOLUMN] 500",
     //   arduino: {
-    //     cpp: "kb.extIo([VOLUMN], 500)", // TODO
+    //     cpp: "kb.extIo([VOLUMN], 500);", // TODO
     //     object: "kb",
     //   },
     // },
