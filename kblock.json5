@@ -103,7 +103,7 @@
       },
       cmd: "M3 [PIN]",
       arduino: {
-        cpp: "digitalRead([PIN]);",
+        cpp: "digitalRead([PIN])",
         object: "kb",
       },
     },
@@ -122,7 +122,7 @@
       },
       cmd: "M5 [PIN]",
       arduino: {
-        cpp: "analogRead([PIN]);",
+        cpp: "analogRead([PIN])",
         object: "kb",
       },
     },
@@ -629,7 +629,7 @@
       },
       cmd: "M250 [PIN] 99",
       arduino: {
-        cpp: "kb.ultrasonic([PIN]);",
+        cpp: "kb.ultrasonic([PIN])",
         object: "kb",
       },
       sepafter: 36
@@ -661,7 +661,7 @@
       },
       cmd: "M221 [AXIS]",
       arduino: {
-        cpp: "(kb.ps2ReadAxis([AXIS]));",
+        cpp: "(kb.ps2ReadAxis([AXIS]))",
         object: "kb",
       },
     },
@@ -680,7 +680,7 @@
       },
       cmd: "M222 [BUTTON]",
       arduino: {
-        cpp: "kb.ps2ReadButton([BUTTON]);",
+        cpp: "kb.ps2ReadButton([BUTTON])",
         object: "kb",
       },
     },
@@ -725,7 +725,7 @@
       text: "$$rosbot_power",
       cmd: "M8",
       arduino: {
-        cpp: "kb.getBatteryVoltage();",
+        cpp: "kb.getBatteryVoltage()",
         object: "kb",
       },
     },
