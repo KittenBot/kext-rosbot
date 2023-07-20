@@ -50,10 +50,6 @@
         "object": "KittenBot kb;",
         "setup": "kb.init();"
       },
-      "softPWM": {
-        "import": "#include <SoftPWM.h>",
-        "setup": "SoftPWMBegin();"
-      },
       "simpleTimer": {
         "import": "#include <SimpleTimer.h>",
         "object": "SimpleTimer timer;",
