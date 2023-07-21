@@ -68,6 +68,11 @@
         "arduino-install-pkg",
         "arduino:avr"
       ]
+    },
+    "arduino_lib": {
+        "msg": "Missing Library",
+        "event": ["Install Library", "arduino-install-lib", "*"],
+        "helperLink": "https://www.yuque.com/kittenbot/kittenblock/arduino-lib"
     }
   },
   "kittenext": true,
