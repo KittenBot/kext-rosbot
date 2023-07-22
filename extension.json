@@ -11,7 +11,7 @@
   "color1": "#DE5277",
   "color2": "#AA3F5B",
   "color3": "#AA3F5B",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "io": [
     "serial"
   ],
@@ -58,23 +58,13 @@
     }
   },
   "subextensions": [
-    "sugar.json5"
+
   ],
-  "errorhelper": {
-    "arduino_core": {
-      "msg": "missing avr core",
-      "event": [
-        "Install Avr Core",
-        "arduino-install-pkg",
-        "arduino:avr"
-      ]
-    },
-    "arduino_lib": {
-        "msg": "Missing Library",
-        "event": ["Install Library", "arduino-install-lib", "*"],
-        "helperLink": "https://www.yuque.com/kittenbot/kittenblock/arduino-lib"
-    }
-  },
+  "loadedextensions": [
+
+  ],
+
+
   "kittenext": true,
   "target": "uno",
   "helpLink": "https://www.yuque.com/kittenbot/hardwares/rosbot-kittenblock",
